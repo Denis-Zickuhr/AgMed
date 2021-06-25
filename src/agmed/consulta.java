@@ -27,8 +27,8 @@ public class Consulta {
                 }
                               
             }else{
-                if (mes==1 | mes==3 | mes==5 | mes==7 | mes==8 | mes == 10 | mes==12){
-                    if(dia > 0 && dia <= 28){
+                if (mes==1 | mes==3 | mes==5 | mes==7 | mes==8 | mes==10 | mes==12){
+                    if(dia > 0 && dia <= 31){
                         aux = dia + "/" + mes + "/" + ano;
                         this.data = aux;
                         return true;
