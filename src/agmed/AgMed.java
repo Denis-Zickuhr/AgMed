@@ -26,7 +26,7 @@ public class AgMed {
        System.out.println(joao.toString());
        **/
        
-        Consulta cons = new Consulta("anderson", "123");
+        Consulta cons = new Consulta("anderson", "12311111111");
         
         cons.setData(28, 2, 2021);
         
@@ -37,7 +37,7 @@ public class AgMed {
         
         
         System.out.println();
-        cons.setCPF("456");
+        cons.setCPF("45611111111");
         cons.setPaciente("Bruno");
         
         cons.setData(29, 2, 2021);

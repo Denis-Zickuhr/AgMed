@@ -27,11 +27,36 @@ public abstract class PessoaFisica {
                 + "'}";
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public boolean setNome(String nome) {
+        if (!nome.isEmpty()){
+            this.nome = nome;
+            return true;
+        }else
+            return false;
     }
-    public void setContato(String contato) {
-        this.contato = contato;
+
+    public boolean setCPF(String cpf){
+        if (cpf.length() == 11){
+            this.cpf = cpf;
+            return true;
+        }else
+            return false;
+        
+    }
+
+    public boolean setEndereco(String endereco) {
+        if (!endereco.isEmpty()){
+            this.endereco = endereco;
+            return true;
+        }else
+            return false;
+    }
+    public boolean setContato(String contato) {
+        if (!contato.isEmpty()){
+            this.contato = contato;
+            return true;
+        }else
+            return false;
     }
     public String getNome() {
         return this.nome;

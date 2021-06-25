@@ -73,7 +73,7 @@ public class Consulta {
     }
     
     public boolean setCPF(String cpf){
-        if (cpf.length() == 3){
+        if (cpf.length() == 11){
             this.cpf = cpf;
             return true;
         }else

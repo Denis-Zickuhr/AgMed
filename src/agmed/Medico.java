@@ -19,12 +19,24 @@ public class Medico extends PessoaFisica{
     private String espc;
     private String funcao;
     
-    public void setEspc(String espc){
-        this.espc = espc;
+    
+    public boolean setEspc(String espc) {
+        if (!espc.isEmpty()){
+            this.espc = espc;
+            return true;
+        }else
+            return false;
     }
-    public void setFuncao(String funcao){
-        this.funcao = funcao;
+
+    public boolean setFuncao(String funcao) {
+        if (!funcao.isEmpty()){
+            this.funcao = funcao;
+            return true;
+        }else
+            return false;
     }
+
+    
     public String getCRM(){
         return this.CRM;
     }
