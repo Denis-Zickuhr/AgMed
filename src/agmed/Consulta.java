@@ -1,6 +1,7 @@
 
 package agmed;
 
+
 public class Consulta {
     
     private String data, paciente, cpf;
