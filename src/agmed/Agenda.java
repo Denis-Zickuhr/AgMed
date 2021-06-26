@@ -1,11 +1,10 @@
-
 package agmed;
-
+import java.util.*;
 
 public class Agenda {
     private String Medico;
-    /**
-    public Agenda(String medico){
+    
+    public Agenda(Medico medico){
         this.Medico = Medico;
     }
 
@@ -13,10 +12,22 @@ public class Agenda {
         return Medico;
     }
     
-    ArrayList<String> Consulta = new ArrayList<>();
+    List<Consulta> consultas = new ArrayList<>();
     
-    public void addConsulta
+    public void addConsulta(Consulta cons){
+        consultas.add(cons);
+    }
     
-    **/
+    public List<Consulta> getConsultas() {
+		return this.consultas;
+	}
+    
+    public void imprimeConsultas() {
+		System.out.println("\nConsultas :\n");
+		for(Consulta consultas : getConsultas()) {
+			System.out.println(consultas.getConsulta());
+		}
+	}
+    
 }
 

@@ -4,8 +4,8 @@ package agmed;
 
 public abstract class PessoaFisica {
 
-    private final String nome;
-    private final String cpf;
+    private String nome;
+    private String cpf;
     private String endereco;
     private String contato;
 
@@ -61,7 +61,7 @@ public abstract class PessoaFisica {
     public String getNome() {
         return this.nome;
     }
-    public String getCpf() {
+    public String getCPF() {
         return this.cpf;
     }
     public String getEndereco() {

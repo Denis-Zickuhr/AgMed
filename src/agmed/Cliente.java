@@ -1,53 +1,58 @@
-
-package agmed;
-import java.util.*;
-
-public class Cliente extends PessoaFisica{
     
-    public Cliente(String nome, String cpf, String endereco, String contato){
+    package agmed;
+    import java.util.*;
     
-        super(nome, cpf, endereco, contato);
+    public class Cliente extends PessoaFisica{
         
-    }
-   
-    private final Map<String, String> historicoMedico = new HashMap<>();
-    
-    public void novaEntrada(String data, String desc){
+        public Cliente(String nome, String cpf, String endereco, String contato){
         
-        if (historicoMedico.containsKey(data)){
-            desc = historicoMedico.get(data) + ", " + desc;
-            historicoMedico.put(data, desc);
+            super(nome, cpf, endereco, contato);
+            
         }
-        else{
-            historicoMedico.put(data, desc);
-        }
-        
-    }
-    public void limparHistórico(){
-        
-        historicoMedico.clear();
-        
-    }
-    public void limparEntrada(String data){
-        
-       historicoMedico.remove(data);
-        
-    }
        
-    public String getHistoricoPD(String data){
-        String dia = data.substring(0,2)+"/"+data.substring(2,4)+"/"+data.substring(4, 8);
-        return dia + "\n" + historicoMedico.get(data) + "\n";
-    }
-    
-    @Override 
-    public String toString(){
+        private final Map<String, String> historicoMedico = new HashMap<>();
         
-        if (!(historicoMedico.isEmpty())){
-            return super.toString() + "historicoMedico="+ historicoMedico.toString();
+        
+        
+        
+        
+        public void novaEntrada(String data, String desc){
+            
+            if (historicoMedico.containsKey(data)){
+                desc = historicoMedico.get(data) + ", " + desc;
+                historicoMedico.put(data, desc);
+            }
+            else{
+                historicoMedico.put(data, desc);
+            }
+            
         }
         
-        return super.toString()+ "historicoMedico=null";
-    }
-    
+        public void limparHistórico(){
+            
+            historicoMedico.clear();
+            
+        }
+        public void limparEntrada(String data){
+            
+           historicoMedico.remove(data);
+            
+        }
+           
+        public String getHistoricoPD(String data){
+            String dia = data.substring(0,2)+"/"+data.substring(2,4)+"/"+data.substring(4, 8);
+            return dia + "\n" + historicoMedico.get(data) + "\n";
+        }
+        
+        public String historicoMedico(){
+            String aux = "";
+            for (String key: historicoMedico.keySet()) {
+                aux += historicoMedico.get(key) + "\n";
+                
+            }
+            return aux;
+        }
+        
+        
 }
 

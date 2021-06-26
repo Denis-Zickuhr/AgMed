@@ -7,7 +7,7 @@ public class AgMed {
     
 
     public static void main(String[] args) {
-        /**
+        /**  TESTE PACIENTE
         Cliente joao = new Cliente("João", "095.123.309-41", "Rua verde, 96" , "tel: 9994155515");
        
         
@@ -26,28 +26,49 @@ public class AgMed {
        System.out.println(joao.toString());
        **/
        
-        Consulta cons = new Consulta("anderson", "12311111111");
+        // TESTE CONSULTA E AGENDA
+       Cliente joao = new Cliente("João", "095.123.309-41", "Rua verde, 96" , "tel: 9994155515");
+       joao.novaEntrada("12022002", "internado em estado grave com cancêr no pancreas");
+       joao.novaEntrada("12022002", "internado em estado grave com cancêr no pulmão");
+       joao.novaEntrada("12022002", "internado em estado grave com cancêr no pulmão");
+       joao.novaEntrada("12022002", "internado em estado grave com cancêr no pulmão");
+       
+       
+       
+       
+       Consulta cons = new Consulta(joao);
+       cons.setConsulta(12, 30, 5, 1, 2021);
+       System.out.println(cons.getConsulta());
         
-        cons.setData(28, 2, 2021);
+       Medico matt = new Medico("João", "095.123.309-41", "Rua verde, 96" , "tel: 9994155515", "crm", "esp", "fun");
+       
+       Agenda agen = new Agenda(matt);
+       
+       
+       agen.addConsulta(cons);
+       
+       agen.imprimeConsultas();
+       
+       
+       System.out.println(cons.toString());
         
+        // TESTE AUTENTICADOR
+        /*
+        Secretário sec = new Secretário();
+        sec.setLogin("aaa");
+        sec.setSenha("aaa");
+        Autenticador aut = new Autenticador("aaa", "aaa");
         
-        System.out.println(cons.getData());
-        System.out.println(cons.getPaciente());
-        System.out.println(cons.getCPF());
+        aut.compare(sec, aut);
         
-        
-        System.out.println();
-        cons.setCPF("45611111111");
-        cons.setPaciente("Bruno");
-        
-        cons.setData(29, 2, 2021);
-        
-        
-        
-        System.out.println(cons.getData());
-        System.out.println(cons.getPaciente());
-        System.out.println(cons.getCPF());
-        
+        if (aut.getChaveAcesso() == true)  
+            System.out.println("aaaaaaaaaaaaaaaa");
+        if (aut.getChaveAcesso() == false)
+            System.out.println("bbbbbbbbbbbbbbbb");
+        */
+       
+       
+       
     }
    
 }

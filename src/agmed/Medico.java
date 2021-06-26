@@ -15,7 +15,7 @@ public class Medico extends PessoaFisica{
         
     }
     
-    private final String CRM;
+    private String CRM;
     private String espc;
     private String funcao;
     
