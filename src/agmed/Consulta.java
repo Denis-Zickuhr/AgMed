@@ -21,7 +21,7 @@ public class Consulta implements Comparable<Consulta>{
         
         if (!data.equalsIgnoreCase("Data inválida"))
             if (!horario.equalsIgnoreCase("Hora inválida")){
-                aux = "Consulta: " + data + " " + horario + ".";
+                aux = data + " " + horario + ".";
                 this.consulta = aux;    
                 return true;
             }else{

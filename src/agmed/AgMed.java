@@ -28,10 +28,10 @@ public class AgMed {
        
         // TESTE CONSULTA E AGENDA
        Cliente joao = new Cliente("João", "095.123.309-41", "Rua verde, 96" , "tel: 9994155515");
-       joao.novaEntrada("12022002", "internado em estado grave com cancêr no pancreas");
-       joao.novaEntrada("12022002", "internado em estado grave com cancêr no pulmão");
-       joao.novaEntrada("12022002", "internado em estado grave com cancêr no pulmão");
-       joao.novaEntrada("12022002", "internado em estado grave com cancêr no pulmão");
+       joao.novaEntrada("12022002", "internado ");
+       joao.novaEntrada("12022002", "internado ");
+       joao.novaEntrada("12022002", "internado ");
+       joao.novaEntrada("12022002", "internado ");
        
        
        
@@ -46,10 +46,16 @@ public class AgMed {
        
        
        agen.addConsulta(cons);
+       System.out.println();
+       System.out.println();
        
        agen.imprimeConsultas();
+       System.out.println();
+       System.out.println();
        
-       
+       System.out.println();
+       System.out.println();
+       System.out.println();
        System.out.println(cons.toString());
         
         // TESTE AUTENTICADOR
