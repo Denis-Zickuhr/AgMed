@@ -12,8 +12,7 @@
        
         public final Map<String, Set<String>> historicoMedico = new HashMap<>();
         private final Set<LinkedHashSet<String>> listOfLists = new LinkedHashSet<>();
-        
-        
+
         
         public void novaEntrada(String data, String desc, String hora){
         
