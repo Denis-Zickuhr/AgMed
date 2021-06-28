@@ -2,14 +2,14 @@ package agmed;
 import java.util.*;
 
 public class Agenda {
-    private String Medico;
+    private final String medico;
     
     public Agenda(Medico medico){
-        this.Medico = Medico;
+        this.medico = medico.getNome();
     }
 
     public String getMedico() {
-        return Medico;
+        return medico;
     }
     
     List<Consulta> consultas = new ArrayList<>();

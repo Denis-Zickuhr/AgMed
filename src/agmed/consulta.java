@@ -4,25 +4,27 @@ import java.util.*;
 
 public class Consulta implements Comparable<Consulta>{
     
-    private String consulta, paciente, cpf, historico;
-    
+    private String consulta, paciente, historico;
+    private final String cpf;
     
     
     public Consulta(Cliente paciente){
         this.paciente = paciente.getNome();
         this.cpf = paciente.getCPF();
-        this.historico = paciente.historicoMedico();
+        this.historico = paciente.getHistoricoMedico();
     }
     
     public boolean setConsulta(int hora, int min, int dia, int mes, int ano){
         String data = this.setData(dia, mes, ano);
         String horario = this.setHora(hora, min);
-        String aux = "";
+      //String aux = "";
         
         if (!data.equalsIgnoreCase("Data inválida"))
             if (!horario.equalsIgnoreCase("Hora inválida")){
-                aux = data + " " + horario + ".";
-                this.consulta = aux;    
+              //aux = data + " " + horario + ".";
+              //this.consulta = aux;
+              //Acho que essa variavel aux é inutil aqui..
+                this.consulta = data + " " + horario + ".";;    
                 return true;
             }else{
                 this.consulta = "Hora inválida";
@@ -102,10 +104,10 @@ public class Consulta implements Comparable<Consulta>{
         return cpf;
     }
     
-    public String toString(){
+    @Override public String toString(){
         return "Paciente: " + this.getPaciente() + "\n" +
-        " Horário: " + this.consulta + "\n" +
-        " Histórico médico: " + "\n"
+        "Horário: " + this.consulta + "\n" +
+        "Histórico médico: " + "\n"
         + historico;
     }
     
