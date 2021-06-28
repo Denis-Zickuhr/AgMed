@@ -1,6 +1,6 @@
 
 package agmed;
-
+import java.util.*;
 
 public class AgMed {
 
@@ -27,45 +27,66 @@ public class AgMed {
        **/
        
         // TESTE CONSULTA E AGENDA
-       Cliente joao = new Cliente("João", "095.123.309-41", "Rua verde, 96" , "tel: 9994155515");
+       Cliente joao = new Cliente("João", "095.153.309-41", "Rua verde, 96" , "tel: 9994155515");
+       
+       Cliente matheus = new Cliente("matheus", "495.123.309-41", "Rua verde, 96" , "tel: 9994155515");
+       
+       Cliente pedro = new Cliente("pedro", "075.123.309-41", "Rua verde, 96" , "tel: 9994155515");
+       
+       Cliente lucas = new Cliente("lucas", "085.123.309-41", "Rua verde, 96" , "tel: 9994155515");
+       
+       /*
        joao.novaEntrada("12022002", "internado", "12");
        joao.novaEntrada("12022002", "solto", "13");
        joao.novaEntrada("12022002", "internado", "14");
        joao.novaEntrada("12022002", "internado", "15");
+       
+       
        joao.novaEntrada("12032002", "morto", "06");
-       joao.novaEntrada("12032002", "coração extraido", "07");
-       joao.novaEntrada("12042002", "recussitou", "03");
-       joao.novaEntrada("12032002", "pulmão extraido", "08");
+       pedro.novaEntrada("12032002", "coração extraido", "07");
+       lucas.novaEntrada("12042002", "recussitou", "03");
+       matheus.novaEntrada("12032002", "pulmão extraido", "08");
        
+       */
        
-       
-       
-       
-       
-        Consulta cons = new Consulta(joao);
-        cons.setConsulta(12, 30, 5, 1, 2021);
-        System.out.println(cons.getConsulta());
+       Medico matt = new Medico("João", "095.123.309-41", "Rua verde, 96", "tel: 9994155515", "crm", "esp", "fun");
 
-        Medico matt = new Medico("João", "095.123.309-41", "Rua verde, 96", "tel: 9994155515", "crm", "esp", "fun");
-
-        Agenda agen = new Agenda(matt);
-
-        agen.addConsulta(cons);
-        System.out.println();
-        System.out.println();
-
+       Agenda agen = new Agenda(matt);
+       
+       
+        Consulta cons1 = new Consulta(joao, agen);
+        cons1.setConsulta(12, 30, 12, 01, 2021);
+        
+        Consulta cons2 = new Consulta(matheus, agen);
+        cons2.setConsulta(13, 30, 25, 01, 2022);
+        
+        Consulta cons3 = new Consulta(pedro, agen);
+        cons3.setConsulta(8, 30, 26, 01, 2021);
+        
+        Consulta cons4 = new Consulta(lucas, agen);
+        cons4.setConsulta(9, 30, 25, 01, 2021);
+        
+        
+        /*
+        System.out.println(agen.getConsultas());
+        Collections.sort(agen.consultas);
+        
+        System.out.println("\n" + "\n" +"\n" +"\n" );
+        System.out.println(agen.getConsultas());
+        */
+        
         agen.imprimeConsultas();
-        System.out.println();
-        System.out.println();
-
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println(cons.toString());
-
-        System.out.println(joao.getHistoricoMedico());
+        System.out.println("\n" + "\n" +"\n" +"\n" );
+        
+        
+        
+        agen.imprimeConsultas();
+        System.out.println("\n" + "\n" +"\n" +"\n" );
+        
+        //System.out.println(joao.getHistoricoMedico());
        
-      
+        
+        
         // TESTE AUTENTICADOR
         /*
         Secretário sec = new Secretário();
