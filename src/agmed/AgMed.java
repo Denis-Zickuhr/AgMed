@@ -64,7 +64,8 @@ public class AgMed {
         System.out.println(cons.toString());
 
         System.out.println(joao.getHistoricoMedico());
-       
+        
+        System.out.println(joao.getHistoricoMedico("12032002"));
       
         // TESTE AUTENTICADOR
         /*
