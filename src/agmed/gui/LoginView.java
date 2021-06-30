@@ -5,7 +5,7 @@
  */
 package agmed.gui;
 
-import agmed.*;
+import agmed.Secretário;
 
 /**
  *
@@ -18,7 +18,6 @@ public class LoginView extends javax.swing.JFrame {
      */
     public LoginView() {
         initComponents();
-        AgMed.preset();
     }
 
     /**
@@ -98,21 +97,21 @@ public class LoginView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
-        OverView tela = new OverView();
+        overView tela = new overView();
         tela.setVisible(true);
-        if(true){
-            this.dispose();
-        }
-        else{
-            //criar tela de erro
-        }
-            
+        
+        
     }//GEN-LAST:event_jButtonEntrarActionPerformed
 
     private void jTextFieldLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldLoginActionPerformed
- 
+    
+    
+    Secretário sec1 = new Secretário("123", "123");
+    
+    
+    
     /**
      * @param args the command line arguments
      */
