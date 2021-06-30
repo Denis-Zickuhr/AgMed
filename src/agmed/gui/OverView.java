@@ -1,10 +1,9 @@
 package agmed.gui;
 import agmed.*;
-import java.util.*;
 
-public class OverView extends javax.swing.JFrame {
+public class overView extends javax.swing.JFrame {
 
-    public OverView() {
+    public overView() {
         initComponents();
     }
     
@@ -71,11 +70,6 @@ public class OverView extends javax.swing.JFrame {
 
         miGerenCadastros.setText("Gerenciar cadastros");
         miGerenCadastros.setToolTipText("");
-        miGerenCadastros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miGerenCadastrosActionPerformed(evt);
-            }
-        });
         meCadastro.add(miGerenCadastros);
 
         mbMenuBar.add(meCadastro);
@@ -94,43 +88,18 @@ public class OverView extends javax.swing.JFrame {
     }//GEN-LAST:event_miVizAgnedasActionPerformed
         
     private void miNvClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNvClienteActionPerformed
-        CadastrarClientesView cadastrarClientes = new CadastrarClientesView();
+        cadastrarClientesView cadastrarClientes = new cadastrarClientesView();
         cadastrarClientes.setVisible(true);
     }//GEN-LAST:event_miNvClienteActionPerformed
 
     private void miNvMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNvMedicoActionPerformed
-        CadastrarMedicosView cadastrarMedicos = new CadastrarMedicosView();
+        cadastrarMedicosView cadastrarMedicos = new cadastrarMedicosView();
         cadastrarMedicos.setVisible(true);
     }//GEN-LAST:event_miNvMedicoActionPerformed
-
-    private void miGerenCadastrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miGerenCadastrosActionPerformed
-        GerenciarCadastrosView gerenciarCadastrosView = new GerenciarCadastrosView();
-        gerenciarCadastrosView.setVisible(true);
-    }//GEN-LAST:event_miGerenCadastrosActionPerformed
     
     public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(OverView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(OverView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(OverView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(OverView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-      
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new OverView().setVisible(true);
-            }
-        });
+        
+        
     }
     
     
