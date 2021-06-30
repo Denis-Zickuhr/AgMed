@@ -1,10 +1,16 @@
 
 package agmed;
 
-public class Secretário {
+public final class Secretário {
     private String login, senha;
     
-    public Secretário (){}
+    public Secretário (String login, String senha){
+        this.setLogin(login);
+        this.setSenha(senha);
+        
+        this.login = this.getLogin();
+        this.senha = this.getSenha();
+    }
     
     public boolean setSenha(String senha){
         if (senha.length() >= 3){

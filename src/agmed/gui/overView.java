@@ -7,7 +7,7 @@ public class overView extends javax.swing.JFrame {
         initComponents();
     }
     
-
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -21,7 +21,6 @@ public class overView extends javax.swing.JFrame {
         miNvCliente = new javax.swing.JMenuItem();
         miNvMedico = new javax.swing.JMenuItem();
         miGerenCadastros = new javax.swing.JMenuItem();
-        meLogin = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(400, 300));
@@ -75,10 +74,6 @@ public class overView extends javax.swing.JFrame {
 
         mbMenuBar.add(meCadastro);
 
-        meLogin.setText("Login");
-        meLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        mbMenuBar.add(meLogin);
-
         setJMenuBar(mbMenuBar);
 
         pack();
@@ -103,35 +98,17 @@ public class overView extends javax.swing.JFrame {
     }//GEN-LAST:event_miNvMedicoActionPerformed
     
     public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(overView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(overView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(overView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(overView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-      
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new overView().setVisible(true);
-            }
-        });
+        
+        
     }
-
+    
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar mbMenuBar;
     private javax.swing.JMenu meAgenda;
     private javax.swing.JMenu meCadastro;
-    private javax.swing.JMenu meLogin;
     private javax.swing.JMenuItem miAgendasArquivadas;
     private javax.swing.JMenuItem miGerenCadastros;
     private javax.swing.JMenuItem miNvCliente;

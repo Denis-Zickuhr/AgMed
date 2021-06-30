@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package agmed.gui;
 import agmed.*;
 import javax.swing.UIManager;
 
-/**
- *
- * @author corin
- */
 public class cadastrarMedicosView extends javax.swing.JFrame {
 
     /**
