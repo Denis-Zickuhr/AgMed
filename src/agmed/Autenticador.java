@@ -3,6 +3,7 @@ import java.util.*;
 import agmed.Secretário;
 public class Autenticador {
     
+    
     private String login, senha;
     private boolean chaveAcesso;
     
