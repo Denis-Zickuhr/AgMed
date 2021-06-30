@@ -19,13 +19,16 @@ public class Agenda {
     }
     
     public List<Consulta> getConsultas() {
-		return this.consultas;
-	}
+        return this.consultas;
+    }
     
     public void imprimeConsultas() {
-		System.out.println("\nConsultas :\n");
-		for(Consulta consultas : getConsultas()) {
-			System.out.println(consultas.getConsulta());
+	Collections.sort(consultas);
+                	
+        
+        System.out.println("\nConsultas :\n");
+	for(Consulta consultas : getConsultas()) {
+            System.out.println(consultas.toString() + "\n");
 		}
 	}
     

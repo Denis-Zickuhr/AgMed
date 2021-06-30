@@ -1,13 +1,14 @@
 package agmed.gui;
 import agmed.*;
+import java.util.*;
 
-public class overView extends javax.swing.JFrame {
+public class OverView extends javax.swing.JFrame {
 
-    public overView() {
+    public OverView() {
         initComponents();
     }
     
-
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -21,7 +22,6 @@ public class overView extends javax.swing.JFrame {
         miNvCliente = new javax.swing.JMenuItem();
         miNvMedico = new javax.swing.JMenuItem();
         miGerenCadastros = new javax.swing.JMenuItem();
-        meLogin = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(400, 300));
@@ -71,13 +71,14 @@ public class overView extends javax.swing.JFrame {
 
         miGerenCadastros.setText("Gerenciar cadastros");
         miGerenCadastros.setToolTipText("");
+        miGerenCadastros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miGerenCadastrosActionPerformed(evt);
+            }
+        });
         meCadastro.add(miGerenCadastros);
 
         mbMenuBar.add(meCadastro);
-
-        meLogin.setText("Login");
-        meLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        mbMenuBar.add(meLogin);
 
         setJMenuBar(mbMenuBar);
 
@@ -93,14 +94,19 @@ public class overView extends javax.swing.JFrame {
     }//GEN-LAST:event_miVizAgnedasActionPerformed
         
     private void miNvClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNvClienteActionPerformed
-        cadastrarClientesView cadastrarClientes = new cadastrarClientesView();
+        CadastrarClientesView cadastrarClientes = new CadastrarClientesView();
         cadastrarClientes.setVisible(true);
     }//GEN-LAST:event_miNvClienteActionPerformed
 
     private void miNvMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNvMedicoActionPerformed
-        cadastrarMedicosView cadastrarMedicos = new cadastrarMedicosView();
+        CadastrarMedicosView cadastrarMedicos = new CadastrarMedicosView();
         cadastrarMedicos.setVisible(true);
     }//GEN-LAST:event_miNvMedicoActionPerformed
+
+    private void miGerenCadastrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miGerenCadastrosActionPerformed
+        GerenciarCadastrosView gerenciarCadastrosView = new GerenciarCadastrosView();
+        gerenciarCadastrosView.setVisible(true);
+    }//GEN-LAST:event_miGerenCadastrosActionPerformed
     
     public static void main(String args[]) {
         try {
@@ -111,27 +117,29 @@ public class overView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(overView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OverView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(overView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OverView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(overView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OverView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(overView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OverView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new overView().setVisible(true);
+                new OverView().setVisible(true);
             }
         });
     }
-
+    
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar mbMenuBar;
     private javax.swing.JMenu meAgenda;
     private javax.swing.JMenu meCadastro;
-    private javax.swing.JMenu meLogin;
     private javax.swing.JMenuItem miAgendasArquivadas;
     private javax.swing.JMenuItem miGerenCadastros;
     private javax.swing.JMenuItem miNvCliente;
