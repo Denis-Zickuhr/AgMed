@@ -3,12 +3,12 @@ package agmed.gui;
 import agmed.*;
 import javax.swing.UIManager;
 
-public class cadastrarMedicosView extends javax.swing.JFrame {
+public class CadastrarMedicosView extends javax.swing.JFrame {
 
     /**
      * Creates new form CasdatrarClientesView
      */
-    public cadastrarMedicosView() {
+    public CadastrarMedicosView() {
         initComponents();
     }
 
@@ -37,7 +37,7 @@ public class cadastrarMedicosView extends javax.swing.JFrame {
         Esp = new javax.swing.JLabel();
         Fun = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         Nome.setText("Nome:");
 
@@ -130,7 +130,7 @@ public class cadastrarMedicosView extends javax.swing.JFrame {
                             .addComponent(tfFun, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 173, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btCadastrar)))
                 .addContainerGap())
         );
@@ -225,14 +225,22 @@ public class cadastrarMedicosView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(cadastrarMedicosView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarMedicosView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(cadastrarMedicosView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarMedicosView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(cadastrarMedicosView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarMedicosView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(cadastrarMedicosView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarMedicosView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -245,7 +253,7 @@ public class cadastrarMedicosView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new cadastrarMedicosView().setVisible(true);
+                new CadastrarMedicosView().setVisible(true);
             }
             
         });

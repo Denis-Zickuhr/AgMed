@@ -2,12 +2,12 @@ package agmed.gui;
 import agmed.*;
 import javax.swing.UIManager;
 
-public class cadastrarClientesView extends javax.swing.JFrame {
+public class CadastrarClientesView extends javax.swing.JFrame {
 
     /**
      * Creates new form CasdatrarClientesView
      */
-    public cadastrarClientesView() {
+    public CadastrarClientesView() {
         initComponents();
     }
 
@@ -30,7 +30,7 @@ public class cadastrarClientesView extends javax.swing.JFrame {
         tfContato = new javax.swing.JTextField();
         btCadastrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         Nome.setText("Nome:");
 
@@ -165,14 +165,18 @@ public class cadastrarClientesView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(cadastrarClientesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarClientesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(cadastrarClientesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarClientesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(cadastrarClientesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarClientesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(cadastrarClientesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarClientesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -181,7 +185,7 @@ public class cadastrarClientesView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new cadastrarClientesView().setVisible(true);
+                new CadastrarClientesView().setVisible(true);
             }
             
         });

@@ -93,12 +93,12 @@ public class OverView extends javax.swing.JFrame {
     }//GEN-LAST:event_miVizAgnedasActionPerformed
         
     private void miNvClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNvClienteActionPerformed
-        cadastrarClientesView cadastrarClientes = new cadastrarClientesView();
+        CadastrarClientesView cadastrarClientes = new CadastrarClientesView();
         cadastrarClientes.setVisible(true);
     }//GEN-LAST:event_miNvClienteActionPerformed
 
     private void miNvMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNvMedicoActionPerformed
-        cadastrarMedicosView cadastrarMedicos = new cadastrarMedicosView();
+        CadastrarMedicosView cadastrarMedicos = new CadastrarMedicosView();
         cadastrarMedicos.setVisible(true);
     }//GEN-LAST:event_miNvMedicoActionPerformed
 
