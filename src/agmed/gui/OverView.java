@@ -1,7 +1,5 @@
 package agmed.gui;
 import agmed.*;
-import agmed.gui.*;
-
 
 public class OverView extends javax.swing.JFrame {
 
@@ -23,6 +21,9 @@ public class OverView extends javax.swing.JFrame {
         miNvCliente = new javax.swing.JMenuItem();
         miNvMedico = new javax.swing.JMenuItem();
         miGerenCadastros = new javax.swing.JMenuItem();
+        meUser = new javax.swing.JMenu();
+        miNvSecretario = new javax.swing.JMenuItem();
+        miLogOut = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(400, 300));
@@ -80,6 +81,26 @@ public class OverView extends javax.swing.JFrame {
 
         mbMenuBar.add(meCadastro);
 
+        meUser.setText("User");
+
+        miNvSecretario.setText("Novo Secretário");
+        miNvSecretario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miNvSecretarioActionPerformed(evt);
+            }
+        });
+        meUser.add(miNvSecretario);
+
+        miLogOut.setText("LogOut");
+        miLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miLogOutActionPerformed(evt);
+            }
+        });
+        meUser.add(miLogOut);
+
+        mbMenuBar.add(meUser);
+
         setJMenuBar(mbMenuBar);
 
         pack();
@@ -107,6 +128,17 @@ public class OverView extends javax.swing.JFrame {
         GerenciarCadastrosView gerenciarCadastros = new GerenciarCadastrosView();
         gerenciarCadastros.setVisible(true);
     }//GEN-LAST:event_miGerenCadastrosActionPerformed
+
+    private void miLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLogOutActionPerformed
+        LoginView tela = new LoginView();
+        tela.setVisible(true); 
+        
+        this.dispose();
+    }//GEN-LAST:event_miLogOutActionPerformed
+
+    private void miNvSecretarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNvSecretarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_miNvSecretarioActionPerformed
     
     public static void main(String args[]) {
         
@@ -120,10 +152,13 @@ public class OverView extends javax.swing.JFrame {
     private javax.swing.JMenuBar mbMenuBar;
     private javax.swing.JMenu meAgenda;
     private javax.swing.JMenu meCadastro;
+    private javax.swing.JMenu meUser;
     private javax.swing.JMenuItem miAgendasArquivadas;
     private javax.swing.JMenuItem miGerenCadastros;
+    private javax.swing.JMenuItem miLogOut;
     private javax.swing.JMenuItem miNvCliente;
     private javax.swing.JMenuItem miNvMedico;
+    private javax.swing.JMenuItem miNvSecretario;
     private javax.swing.JMenuItem miVizAgnedas;
     // End of variables declaration//GEN-END:variables
 }
