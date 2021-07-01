@@ -36,8 +36,14 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
         CRM = new javax.swing.JLabel();
         Esp = new javax.swing.JLabel();
         Fun = new javax.swing.JLabel();
+        btCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                formMouseMoved(evt);
+            }
+        });
 
         Nome.setText("Nome:");
 
@@ -72,6 +78,7 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
         });
 
         btCadastrar.setText("Cadastrar");
+        btCadastrar.setEnabled(false);
         btCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCadastrarActionPerformed(evt);
@@ -102,12 +109,19 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
 
         Fun.setText("Função:");
 
+        btCancelar.setText("Cancelar");
+        btCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -129,8 +143,10 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
                             .addComponent(tfEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tfFun, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(btCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btCadastrar)))
                 .addContainerGap())
         );
@@ -166,7 +182,9 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
                     .addComponent(tfFun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Fun))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btCadastrar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btCadastrar)
+                    .addComponent(btCancelar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -208,6 +226,26 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfFunActionPerformed
 
+    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btCancelarActionPerformed
+
+    private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
+        disableButton();
+    }//GEN-LAST:event_formMouseMoved
+
+    public static void disableButton(){
+        if(!(tfNome.getText().equals("") | tfCPF.getText().equals("")
+                | tfEndereco.getText().equals("")
+                | tfContato.getText().equals("") 
+                | tfCRM.getText().equals("") 
+                | tfEsp.getText().equals("")
+                | tfFun.getText().equals(""))){
+            btCadastrar.setEnabled(true);
+        }else{
+            btCadastrar.setEnabled(false);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -315,13 +353,14 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
     private javax.swing.JLabel Esp;
     private javax.swing.JLabel Fun;
     private javax.swing.JLabel Nome;
-    private javax.swing.JButton btCadastrar;
-    private javax.swing.JTextField tfCPF;
-    private javax.swing.JTextField tfCRM;
-    private javax.swing.JTextField tfContato;
-    private javax.swing.JTextField tfEndereco;
-    private javax.swing.JTextField tfEsp;
-    private javax.swing.JTextField tfFun;
-    private javax.swing.JTextField tfNome;
+    private static javax.swing.JButton btCadastrar;
+    private javax.swing.JButton btCancelar;
+    private static javax.swing.JTextField tfCPF;
+    private static javax.swing.JTextField tfCRM;
+    private static javax.swing.JTextField tfContato;
+    private static javax.swing.JTextField tfEndereco;
+    private static javax.swing.JTextField tfEsp;
+    private static javax.swing.JTextField tfFun;
+    private static javax.swing.JTextField tfNome;
     // End of variables declaration//GEN-END:variables
 }
