@@ -174,6 +174,7 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+<<<<<<< Updated upstream
 
 
     private void tfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeActionPerformed
@@ -193,6 +194,9 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
     }//GEN-LAST:event_tfContatoActionPerformed
 
 
+=======
+    
+>>>>>>> Stashed changes
     public Set<PessoaFisica> medicoList = new LinkedHashSet<>();
     
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
