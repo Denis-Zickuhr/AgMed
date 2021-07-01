@@ -1,10 +1,15 @@
 package agmed;
 import agmed.gui.*;
 import java.util.*;
+import agmed.Secretario;
+import agmed.Autenticador;
+
 
 public class AgMed {
     
     public static Set<Secretario> userList = new LinkedHashSet<>();
+    
+    
     
     public static void preset(){
         

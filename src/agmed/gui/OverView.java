@@ -1,5 +1,7 @@
 package agmed.gui;
 import agmed.*;
+import agmed.gui.*;
+
 
 public class OverView extends javax.swing.JFrame {
 
@@ -24,7 +26,6 @@ public class OverView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(400, 300));
-        setPreferredSize(new java.awt.Dimension(400, 300));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

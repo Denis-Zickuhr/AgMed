@@ -1,18 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package agmed.gui;
 
 import agmed.Secretario;
+import agmed.Autenticador;
+import agmed.AgMed;
+import static agmed.AgMed.userList;
 
-/**
- *
- * @author Augusto
- */
 public class LoginView extends javax.swing.JFrame {
-
+    
+    
     /**
      * Creates new form LoginView
      */
@@ -33,10 +29,9 @@ public class LoginView extends javax.swing.JFrame {
         jTextFieldLogin = new javax.swing.JTextField();
         jLabelLogin = new javax.swing.JLabel();
         jLabelSenha = new javax.swing.JLabel();
-        jPasswordFieldSenha = new javax.swing.JPasswordField();
+        jTextFieldSenha = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
 
         jButtonEntrar.setText("Entrar");
         jButtonEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -54,6 +49,12 @@ public class LoginView extends javax.swing.JFrame {
         jLabelLogin.setText("Login:");
 
         jLabelSenha.setText("Senha");
+
+        jTextFieldSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSenhaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,7 +75,7 @@ public class LoginView extends javax.swing.JFrame {
                         .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
-                            .addComponent(jPasswordFieldSenha))))
+                            .addComponent(jTextFieldSenha))))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -86,28 +87,52 @@ public class LoginView extends javax.swing.JFrame {
                 .addComponent(jTextFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
                 .addComponent(jLabelSenha)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addComponent(jButtonEntrar)
                 .addContainerGap(68, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
+    Secretario sec1 = new Secretario("1234", "1234");
+    
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
         OverView tela = new OverView();
-        tela.setVisible(true);
-        this.dispose();
+        Erro erro = new Erro();
+        
+        Autenticador auten = new Autenticador();
+        
+        auten.setSenha(jTextFieldSenha.getText());
+        auten.setLogin(jTextFieldLogin.getText());
+        
+        
+        for(Secretario sec : userList) {
+            auten.compare(sec, auten);
+            if (auten.getChaveAcesso() == true)
+                break;
+	}
+        
+        
+        
+        if (auten.getChaveAcesso() == true){
+            tela.setVisible(true);
+            this.dispose();
+        }else   
+            erro.setVisible(true);
+        
     }//GEN-LAST:event_jButtonEntrarActionPerformed
 
     private void jTextFieldLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldLoginActionPerformed
-    
-    
-    Secretario sec1 = new Secretario("123", "123");
+
+    private void jTextFieldSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSenhaActionPerformed
     
     
     
@@ -137,20 +162,23 @@ public class LoginView extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
+        
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginView().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonEntrar;
     private javax.swing.JLabel jLabelLogin;
     private javax.swing.JLabel jLabelSenha;
-    private javax.swing.JPasswordField jPasswordFieldSenha;
     private javax.swing.JTextField jTextFieldLogin;
+    private javax.swing.JTextField jTextFieldSenha;
     // End of variables declaration//GEN-END:variables
 }
