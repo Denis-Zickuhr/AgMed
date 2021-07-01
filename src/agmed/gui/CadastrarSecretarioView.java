@@ -30,37 +30,54 @@ public class CadastrarSecretarioView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextFieldLogin = new javax.swing.JTextField();
-        jTextFieldSenha1 = new javax.swing.JTextField();
-        jTextFieldSenha2 = new javax.swing.JTextField();
-        btCadastrarr = new javax.swing.JButton();
+        Usuario = new javax.swing.JLabel();
+        Senha = new javax.swing.JLabel();
+        ConfirmarSenha = new javax.swing.JLabel();
+        tfUsuario = new javax.swing.JTextField();
+        tfSenha1 = new javax.swing.JTextField();
+        tfSenha2 = new javax.swing.JTextField();
+        btCadastrar = new javax.swing.JButton();
+        btCancelar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                formMouseMoved(evt);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
+
+        Usuario.setText("Usuário:");
+
+        Senha.setText("Senha:");
+
+        ConfirmarSenha.setText("Confirmar senha:");
+
+        tfUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfUsuarioKeyReleased(evt);
             }
         });
 
-        jLabel1.setText("Usuário:");
-
-        jLabel2.setText("Senha:");
-
-        jLabel3.setText("Confirmar senha:");
-
-        jTextFieldSenha1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSenha1ActionPerformed(evt);
+        tfSenha1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfSenha1KeyReleased(evt);
             }
         });
 
-        btCadastrarr.setText("Confirmar");
-        btCadastrarr.addActionListener(new java.awt.event.ActionListener() {
+        tfSenha2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfSenha2KeyReleased(evt);
+            }
+        });
+
+        btCadastrar.setText("Confirmar");
+        btCadastrar.setEnabled(false);
+        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCadastrarrActionPerformed(evt);
+                btCadastrarActionPerformed(evt);
+            }
+        });
+
+        btCancelar.setText("Cancelar");
+        btCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelarActionPerformed(evt);
             }
         });
 
@@ -69,72 +86,86 @@ public class CadastrarSecretarioView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(ConfirmarSenha)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(tfSenha2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(12, 12, 12)
+                            .addComponent(btCancelar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btCadastrar)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addComponent(Senha)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldSenha2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tfSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2))
-                                .addGap(60, 60, 60)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldSenha1)
-                                    .addComponent(jTextFieldLogin)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(btCadastrarr)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                                .addComponent(Usuario)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Usuario)
+                    .addComponent(tfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextFieldSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Senha))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextFieldSenha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addComponent(btCadastrarr)
-                .addContainerGap(78, Short.MAX_VALUE))
+                    .addComponent(ConfirmarSenha)
+                    .addComponent(tfSenha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btCadastrar)
+                    .addComponent(btCancelar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldSenha1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSenha1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSenha1ActionPerformed
-
-    private void btCadastrarrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarrActionPerformed
-        Secretario sec = new Secretario(jTextFieldLogin.getText(), jTextFieldSenha1.getText());
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
+        Secretario sec = new Secretario(tfUsuario.getText(), tfSenha1.getText());
         userList.add(sec);
         this.dispose();
         
-    }//GEN-LAST:event_btCadastrarrActionPerformed
+    }//GEN-LAST:event_btCadastrarActionPerformed
 
-    private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
+    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btCancelarActionPerformed
+
+    private void tfUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfUsuarioKeyReleased
         disableButton();
-    }//GEN-LAST:event_formMouseMoved
+    }//GEN-LAST:event_tfUsuarioKeyReleased
+
+    private void tfSenha1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSenha1KeyReleased
+        disableButton();
+    }//GEN-LAST:event_tfSenha1KeyReleased
+
+    private void tfSenha2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSenha2KeyReleased
+        disableButton();
+    }//GEN-LAST:event_tfSenha2KeyReleased
     
     public static void disableButton(){
-        if((jTextFieldSenha1.getText() == null ? jTextFieldSenha2.getText() == null : jTextFieldSenha1.getText().equals(jTextFieldSenha2.getText()))
-                | jTextFieldLogin.getText().equals("")
-                 ){
-            btCadastrarr.setEnabled(true);
+        if((tfSenha1.getText().equals(tfSenha2.getText())) 
+                & !(tfSenha1.getText().equals(""))
+                & !(tfUsuario.getText().equals(""))){
+            btCadastrar.setEnabled(true);
         }else{
-            btCadastrarr.setEnabled(false);
+            btCadastrar.setEnabled(false);
         }
     }
     
@@ -174,12 +205,13 @@ public class CadastrarSecretarioView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private static javax.swing.JButton btCadastrarr;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private static javax.swing.JTextField jTextFieldLogin;
-    private static javax.swing.JTextField jTextFieldSenha1;
-    private static javax.swing.JTextField jTextFieldSenha2;
+    private javax.swing.JLabel ConfirmarSenha;
+    private javax.swing.JLabel Senha;
+    private javax.swing.JLabel Usuario;
+    private static javax.swing.JButton btCadastrar;
+    private javax.swing.JButton btCancelar;
+    private static javax.swing.JTextField tfSenha1;
+    private static javax.swing.JTextField tfSenha2;
+    private static javax.swing.JTextField tfUsuario;
     // End of variables declaration//GEN-END:variables
 }

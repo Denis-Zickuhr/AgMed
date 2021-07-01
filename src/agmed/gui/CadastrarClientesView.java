@@ -32,11 +32,6 @@ public class CadastrarClientesView extends javax.swing.JFrame {
         btCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                formMouseMoved(evt);
-            }
-        });
 
         Nome.setText("Nome:");
 
@@ -45,6 +40,30 @@ public class CadastrarClientesView extends javax.swing.JFrame {
         Endereco.setText("Endereço:");
 
         Contato.setText("Contato:");
+
+        tfNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfNomeKeyReleased(evt);
+            }
+        });
+
+        tfCPF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfCPFKeyReleased(evt);
+            }
+        });
+
+        tfEndereco.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfEnderecoKeyReleased(evt);
+            }
+        });
+
+        tfContato.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfContatoKeyReleased(evt);
+            }
+        });
 
         btCadastrar.setText("Cadastrar");
         btCadastrar.setEnabled(false);
@@ -133,9 +152,21 @@ public class CadastrarClientesView extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btCancelarActionPerformed
 
-    private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
+    private void tfContatoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfContatoKeyReleased
         disableButton();
-    }//GEN-LAST:event_formMouseMoved
+    }//GEN-LAST:event_tfContatoKeyReleased
+
+    private void tfEnderecoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfEnderecoKeyReleased
+        disableButton();
+    }//GEN-LAST:event_tfEnderecoKeyReleased
+
+    private void tfCPFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCPFKeyReleased
+        disableButton();
+    }//GEN-LAST:event_tfCPFKeyReleased
+
+    private void tfNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNomeKeyReleased
+        disableButton();
+    }//GEN-LAST:event_tfNomeKeyReleased
 
    
     public static void disableButton(){

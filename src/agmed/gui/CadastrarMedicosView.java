@@ -39,11 +39,6 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
         btCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                formMouseMoved(evt);
-            }
-        });
 
         Nome.setText("Nome:");
 
@@ -53,27 +48,27 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
 
         Contato.setText("Contato:");
 
-        tfNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfNomeActionPerformed(evt);
+        tfNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfNomeKeyReleased(evt);
             }
         });
 
-        tfCPF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfCPFActionPerformed(evt);
+        tfCPF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfCPFKeyReleased(evt);
             }
         });
 
-        tfEndereco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfEnderecoActionPerformed(evt);
+        tfEndereco.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfEnderecoKeyReleased(evt);
             }
         });
 
-        tfContato.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfContatoActionPerformed(evt);
+        tfContato.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfContatoKeyReleased(evt);
             }
         });
 
@@ -85,21 +80,21 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
             }
         });
 
-        tfCRM.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfCRMActionPerformed(evt);
+        tfCRM.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfCRMKeyReleased(evt);
             }
         });
 
-        tfEsp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfEspActionPerformed(evt);
+        tfEsp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfEspKeyReleased(evt);
             }
         });
 
-        tfFun.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfFunActionPerformed(evt);
+        tfFun.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfFunKeyReleased(evt);
             }
         });
 
@@ -191,22 +186,6 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfNomeActionPerformed
-
-    private void tfCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCPFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfCPFActionPerformed
-
-    private void tfEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEnderecoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfEnderecoActionPerformed
-
-    private void tfContatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfContatoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfContatoActionPerformed
-
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         PessoaFisica medico = new Medico(tfNome.getText(),tfCPF.getText(),
                 tfEndereco.getText(),tfContato.getText(), tfCRM.getText(),
@@ -214,25 +193,37 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btCadastrarActionPerformed
 
-    private void tfCRMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCRMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfCRMActionPerformed
-
-    private void tfEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEspActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfEspActionPerformed
-
-    private void tfFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFunActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfFunActionPerformed
-
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btCancelarActionPerformed
 
-    private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
+    private void tfNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNomeKeyReleased
         disableButton();
-    }//GEN-LAST:event_formMouseMoved
+    }//GEN-LAST:event_tfNomeKeyReleased
+
+    private void tfCPFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCPFKeyReleased
+        disableButton();
+    }//GEN-LAST:event_tfCPFKeyReleased
+
+    private void tfEnderecoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfEnderecoKeyReleased
+        disableButton();
+    }//GEN-LAST:event_tfEnderecoKeyReleased
+
+    private void tfContatoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfContatoKeyReleased
+        disableButton();
+    }//GEN-LAST:event_tfContatoKeyReleased
+
+    private void tfCRMKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCRMKeyReleased
+        disableButton();
+    }//GEN-LAST:event_tfCRMKeyReleased
+
+    private void tfEspKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfEspKeyReleased
+        disableButton();
+    }//GEN-LAST:event_tfEspKeyReleased
+
+    private void tfFunKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfFunKeyReleased
+        disableButton();
+    }//GEN-LAST:event_tfFunKeyReleased
 
     public static void disableButton(){
         if(!(tfNome.getText().equals("") | tfCPF.getText().equals("")
@@ -250,93 +241,7 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastrarMedicosView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastrarMedicosView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastrarMedicosView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastrarMedicosView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CadastrarMedicosView().setVisible(true);
