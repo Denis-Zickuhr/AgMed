@@ -1,6 +1,8 @@
 
 package agmed.gui;
 import agmed.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import javax.swing.UIManager;
 
 public class CadastrarMedicosView extends javax.swing.JFrame {
@@ -173,6 +175,7 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void tfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomeActionPerformed
@@ -189,10 +192,14 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfContatoActionPerformed
 
+
+    public Set<PessoaFisica> medicoList = new LinkedHashSet<>();
+    
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         PessoaFisica medico = new Medico(tfNome.getText(),tfCPF.getText(),
                 tfEndereco.getText(),tfContato.getText(), tfCRM.getText(),
                 tfEsp.getText(), tfFun.getText());
+        medicoList.add(medico);
         this.dispose();
     }//GEN-LAST:event_btCadastrarActionPerformed
 
@@ -324,4 +331,10 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
     private javax.swing.JTextField tfFun;
     private javax.swing.JTextField tfNome;
     // End of variables declaration//GEN-END:variables
+
+    static class medicoList {
+
+        public medicoList() {
+        }
+    }
 }

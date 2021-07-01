@@ -17,6 +17,7 @@ public class OverView extends javax.swing.JFrame {
         meAgenda = new javax.swing.JMenu();
         miVizAgnedas = new javax.swing.JMenuItem();
         miAgendasArquivadas = new javax.swing.JMenuItem();
+        miCriarAgenda = new javax.swing.JMenuItem();
         meCadastro = new javax.swing.JMenu();
         miNvCliente = new javax.swing.JMenuItem();
         miNvMedico = new javax.swing.JMenuItem();
@@ -24,6 +25,8 @@ public class OverView extends javax.swing.JFrame {
         meUser = new javax.swing.JMenu();
         miNvSecretario = new javax.swing.JMenuItem();
         miLogOut = new javax.swing.JMenuItem();
+        meConsulta = new javax.swing.JMenu();
+        miCadastrarConsulta = new javax.swing.JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(400, 300));
@@ -47,6 +50,14 @@ public class OverView extends javax.swing.JFrame {
             }
         });
         meAgenda.add(miAgendasArquivadas);
+
+        miCriarAgenda.setText("Criar agenda");
+        miCriarAgenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCriarAgendaActionPerformed(evt);
+            }
+        });
+        meAgenda.add(miCriarAgenda);
 
         mbMenuBar.add(meAgenda);
 
@@ -101,6 +112,14 @@ public class OverView extends javax.swing.JFrame {
 
         mbMenuBar.add(meUser);
 
+        meConsulta.setText("Consultas");
+
+        miCadastrarConsulta.setSelected(true);
+        miCadastrarConsulta.setText("Criar consulta");
+        meConsulta.add(miCadastrarConsulta);
+
+        mbMenuBar.add(meConsulta);
+
         setJMenuBar(mbMenuBar);
 
         pack();
@@ -139,6 +158,16 @@ public class OverView extends javax.swing.JFrame {
     private void miNvSecretarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNvSecretarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_miNvSecretarioActionPerformed
+
+    private void miCriarAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCriarAgendaActionPerformed
+        // TODO add your handling code here:
+        CriarAgendasView criarAgendas = new CriarAgendasView();
+        criarAgendas.setVisible(true);
+        
+        
+        
+        
+    }//GEN-LAST:event_miCriarAgendaActionPerformed
     
     public static void main(String args[]) {
         
@@ -152,8 +181,11 @@ public class OverView extends javax.swing.JFrame {
     private javax.swing.JMenuBar mbMenuBar;
     private javax.swing.JMenu meAgenda;
     private javax.swing.JMenu meCadastro;
+    private javax.swing.JMenu meConsulta;
     private javax.swing.JMenu meUser;
     private javax.swing.JMenuItem miAgendasArquivadas;
+    private javax.swing.JCheckBoxMenuItem miCadastrarConsulta;
+    private javax.swing.JMenuItem miCriarAgenda;
     private javax.swing.JMenuItem miGerenCadastros;
     private javax.swing.JMenuItem miLogOut;
     private javax.swing.JMenuItem miNvCliente;
