@@ -29,7 +29,7 @@ public class LoginView extends javax.swing.JFrame {
         jTextFieldLogin = new javax.swing.JTextField();
         jLabelLogin = new javax.swing.JLabel();
         jLabelSenha = new javax.swing.JLabel();
-        jTextFieldSenha = new javax.swing.JTextField();
+        jPasswordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,12 +50,6 @@ public class LoginView extends javax.swing.JFrame {
 
         jLabelSenha.setText("Senha");
 
-        jTextFieldSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSenhaActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -75,7 +69,7 @@ public class LoginView extends javax.swing.JFrame {
                         .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
-                            .addComponent(jTextFieldSenha))))
+                            .addComponent(jPasswordField))))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -87,26 +81,25 @@ public class LoginView extends javax.swing.JFrame {
                 .addComponent(jTextFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
                 .addComponent(jLabelSenha)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addComponent(jButtonEntrar)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
     
-    Secretario sec1 = new Secretario("1234", "1234");
-    
+   
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
         OverView tela = new OverView();
         Erro erro = new Erro();
         
         Autenticador auten = new Autenticador();
         
-        auten.setSenha(jTextFieldSenha.getText());
+        auten.setSenha(jPasswordField.getText());
         auten.setLogin(jTextFieldLogin.getText());
         
         
@@ -129,10 +122,6 @@ public class LoginView extends javax.swing.JFrame {
     private void jTextFieldLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldLoginActionPerformed
-
-    private void jTextFieldSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSenhaActionPerformed
     
     
     
@@ -178,7 +167,7 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JButton jButtonEntrar;
     private javax.swing.JLabel jLabelLogin;
     private javax.swing.JLabel jLabelSenha;
+    private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JTextField jTextFieldLogin;
-    private javax.swing.JTextField jTextFieldSenha;
     // End of variables declaration//GEN-END:variables
 }

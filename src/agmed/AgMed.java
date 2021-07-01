@@ -15,6 +15,8 @@ public class AgMed {
         
         Secretario augusto = new Secretario("Augusto", "augusto123");
         Secretario denis = new Secretario("Denis", "denis123");
+        Secretario a = new Secretario("123", "123");
+        userList.add(a);
         userList.add(denis);
         userList.add(augusto);
 

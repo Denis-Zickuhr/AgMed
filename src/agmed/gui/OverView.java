@@ -107,11 +107,17 @@ public class OverView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void miAgendasArquivadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgendasArquivadasActionPerformed
-        // TODO add your handling code here:
+        
+        
+        
+        
     }//GEN-LAST:event_miAgendasArquivadasActionPerformed
 
     private void miVizAgnedasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVizAgnedasActionPerformed
-        // TODO add your handling code here:
+        
+        
+        
+        
     }//GEN-LAST:event_miVizAgnedasActionPerformed
         
     private void miNvClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNvClienteActionPerformed
@@ -137,7 +143,9 @@ public class OverView extends javax.swing.JFrame {
     }//GEN-LAST:event_miLogOutActionPerformed
 
     private void miNvSecretarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNvSecretarioActionPerformed
-        // TODO add your handling code here:
+        CadastrarSecretarioView cadastrarSecretario = new CadastrarSecretarioView();
+        cadastrarSecretario.setVisible(true);
+        
     }//GEN-LAST:event_miNvSecretarioActionPerformed
     
     public static void main(String args[]) {
