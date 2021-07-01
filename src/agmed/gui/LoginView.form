@@ -102,6 +102,7 @@
     </Component>
     <Component class="javax.swing.JPasswordField" name="pfSenha">
       <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pfSenhaActionPerformed"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="pfSenhaKeyReleased"/>
       </Events>
       <AuxValues>

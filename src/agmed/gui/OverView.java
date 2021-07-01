@@ -156,7 +156,8 @@ public class OverView extends javax.swing.JFrame {
     }//GEN-LAST:event_miLogOutActionPerformed
 
     private void miNvSecretarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNvSecretarioActionPerformed
-        // TODO add your handling code here:
+        CadastrarSecretarioView cadastrarSecretarioView = new CadastrarSecretarioView();
+        cadastrarSecretarioView.setVisible(true);
     }//GEN-LAST:event_miNvSecretarioActionPerformed
 
     private void miCriarAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCriarAgendaActionPerformed
