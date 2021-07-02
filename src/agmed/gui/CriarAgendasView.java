@@ -16,7 +16,7 @@ public class CriarAgendasView extends javax.swing.JFrame {
      */
     public CriarAgendasView() {
         initComponents();
-        cbMedicoList.setVisible(false);
+        //cbMedicoList.setVisible(false);
     }
 
     /**
@@ -31,7 +31,6 @@ public class CriarAgendasView extends javax.swing.JFrame {
         cbMedicoList = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        cbMedicoListString = new javax.swing.JComboBox<>();
 
         cbMedicoList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,41 +47,29 @@ public class CriarAgendasView extends javax.swing.JFrame {
             }
         });
 
-        cbMedicoListString.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbMedicoListStringActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(cbMedicoList, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(cbMedicoListString, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1)
-                        .addGap(42, 42, 42)))
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(cbMedicoList, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(62, 62, 62))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(cbMedicoList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbMedicoListString, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addComponent(cbMedicoList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -92,7 +79,7 @@ public class CriarAgendasView extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         for (Medico m : CadastrarMedicosView.getMedicoList()){
-                   if(cbMedicoList.getItemAt(cbMedicoListString.getSelectedIndex()).getNome().equals(m.getNome())){
+                   if(cbMedicoList.getItemAt(cbMedicoList.getSelectedIndex()).getNome().equals(m.getNome())){
                    Agenda a = new Agenda(m);
                    System.out.println(a.toString());
                    }
@@ -112,23 +99,8 @@ public class CriarAgendasView extends javax.swing.JFrame {
        
     }//GEN-LAST:event_cbMedicoListActionPerformed
 
-    private void cbMedicoListStringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMedicoListStringActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbMedicoListStringActionPerformed
-
     public static void addItems(Medico o){
         cbMedicoList.addItem(o);
-    }
-    public static void addItems(String o){
-        cbMedicoListString.addItem(o);
-    }
-    
-    public static void RemoveAllItems(){
-        cbMedicoList.removeAllItems();
-    }
-    
-        public static void RemoveAllItems(String x){
-        cbMedicoListString.removeAllItems();
     }
     
     public static void main(String args[]) {
@@ -166,7 +138,6 @@ public class CriarAgendasView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JComboBox<Medico> cbMedicoList;
-    private static javax.swing.JComboBox<String> cbMedicoListString;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

@@ -47,5 +47,9 @@ public class Medico extends PessoaFisica{
         return this.funcao;
     }
     
+    public String toString(){
+        return nome;
+    }
+    
 }
 

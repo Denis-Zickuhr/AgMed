@@ -4,7 +4,7 @@ package agmed;
 
 public abstract class PessoaFisica {
 
-    private String nome;
+    protected String nome;
     private String cpf;
     private String endereco;
     private String contato;

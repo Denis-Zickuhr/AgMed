@@ -8,6 +8,7 @@ import java.util.Set;
 public class CadastrarMedicosView extends javax.swing.JFrame {
 
     private final static Set<Medico> medicoList = new LinkedHashSet();
+    private final static Set<Medico> medicoListAux = new LinkedHashSet();
     
     public CadastrarMedicosView() {
         initComponents();
@@ -186,13 +187,13 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
         Medico medico = new Medico(tfNome.getText(),tfCPF.getText(),
                 tfEndereco.getText(),tfContato.getText(), tfCRM.getText(),
                 tfEsp.getText(), tfFun.getText());
+        medicoListAux.add(medico);
         medicoList.add(medico);
-        CriarAgendasView.RemoveAllItems();
-        CriarAgendasView.RemoveAllItems("");
-        for (Medico pes : CadastrarMedicosView.getMedicoList()) {
+        for (Medico pes : CadastrarMedicosView.getMedicoListAux()) {
             CriarAgendasView.addItems(pes);
-            CriarAgendasView.addItems(pes.getNome());
+            medicoListAux.remove(pes);
         }
+        GerenciarCadastrosView.add(medico);
         this.dispose();
     }//GEN-LAST:event_btCadastrarActionPerformed
 
@@ -230,6 +231,10 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
 
     public static Set<Medico> getMedicoList(){
         return medicoList;
+    }
+    
+     public static Set<Medico> getMedicoListAux(){
+        return medicoListAux;
     }
     
     public static void disableButton(){

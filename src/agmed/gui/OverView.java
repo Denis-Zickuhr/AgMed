@@ -10,7 +10,7 @@ public class OverView extends javax.swing.JFrame {
         gerenciarAgendas();
 
     }
-    private final List listAux = new ArrayList();
+    private static final List listAux = new ArrayList();
     
 
     @SuppressWarnings("unchecked")
@@ -155,7 +155,6 @@ public class OverView extends javax.swing.JFrame {
     private void miLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLogOutActionPerformed
         LoginView tela = new LoginView();
         tela.setVisible(true); 
-        
         this.dispose();
     }//GEN-LAST:event_miLogOutActionPerformed
 
@@ -171,7 +170,7 @@ public class OverView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_miCriarAgendaActionPerformed
     
-    public void gerenciarAgendas(){
+    public static void gerenciarAgendas(){
         if(listAux.isEmpty()){
             CriarAgendasView criarAgendas = new CriarAgendasView();
             listAux.add(criarAgendas);

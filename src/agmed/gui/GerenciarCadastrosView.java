@@ -1,6 +1,9 @@
 
 package agmed.gui;
 
+import agmed.Medico;
+import javax.swing.JList;
+
 public class GerenciarCadastrosView extends javax.swing.JFrame {
 
     /**
@@ -88,11 +91,6 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        liCadastrados.setModel(new javax.swing.AbstractListModel<Object>() {
-            String[] strings = { "Item 1", "Item 2" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(liCadastrados);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -179,6 +177,9 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btPesquisarActionPerformed
 
+    public static void add(Medico m){
+        //
+    }
     /**
      * @param args the command line arguments
      */
@@ -224,7 +225,7 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private static javax.swing.JList<Object> liCadastrados;
+    private static javax.swing.JList<Medico> liCadastrados;
     private static javax.swing.JList<Object> liCadastrados1;
     private javax.swing.JTextField tfPesquisar;
     // End of variables declaration//GEN-END:variables
