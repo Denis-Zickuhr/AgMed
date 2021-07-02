@@ -13,7 +13,12 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
     public CadastrarMedicosView() {
         initComponents();
     }
-
+    public static Set<Medico> medicoList = new LinkedHashSet<>();
+    
+    public static void presets(){
+        Medico augusto = new Medico("a","a","a","a","a","a","a");
+        medicoList.add(augusto);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -200,10 +205,15 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
     public Set<PessoaFisica> medicoList = new LinkedHashSet<>();
     
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-        PessoaFisica medico = new Medico(tfNome.getText(),tfCPF.getText(),
+        Medico medico = new Medico(tfNome.getText(),tfCPF.getText(),
                 tfEndereco.getText(),tfContato.getText(), tfCRM.getText(),
                 tfEsp.getText(), tfFun.getText());
+<<<<<<< Updated upstream
         medicoList.add(medico);
+=======
+        
+        medicoList.add( medico);
+>>>>>>> Stashed changes
         this.dispose();
     }//GEN-LAST:event_btCadastrarActionPerformed
 
@@ -223,6 +233,7 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+<<<<<<< Updated upstream
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -310,6 +321,9 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+=======
+        presets();
+>>>>>>> Stashed changes
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CadastrarMedicosView().setVisible(true);

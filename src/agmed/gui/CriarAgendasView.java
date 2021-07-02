@@ -5,19 +5,30 @@
  */
 package agmed.gui;
 
+import static agmed.AgMed.preset;
 import agmed.Medico;
 import agmed.PessoaFisica;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 
 
 public class CriarAgendasView extends javax.swing.JFrame {
 
-    private Iterable<PessoaFisica> medicoList;
-
+    /**
+     *
+     */
+    
+    
+    
     /**
      * Creates new form CriarConsultasView
      */
     public CriarAgendasView() {
         initComponents();
+        
+        
     }
 
     /**
@@ -85,20 +96,13 @@ public class CriarAgendasView extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    
+    
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-        /*
-         for(Secretario sec : userList) {
-            auten.compare(sec, auten);
-            if (auten.getChaveAcesso() == true)
-                break;
-	}
-        */
         
-        for (PessoaFisica pes : medicoList){
-            
-        }
+        
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
@@ -106,6 +110,8 @@ public class CriarAgendasView extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
