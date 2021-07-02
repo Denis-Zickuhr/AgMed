@@ -32,5 +32,9 @@ public class Agenda {
 		}
 	}
     
+    public String toString(){
+        return medico;
+    }
+    
 }
 

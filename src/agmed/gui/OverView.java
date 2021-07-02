@@ -1,12 +1,16 @@
 package agmed.gui;
-import agmed.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class OverView extends javax.swing.JFrame {
 
     public OverView() {
         initComponents();
+        gerenciarAgendas();
+
     }
-    
+    private final List listAux = new ArrayList();
     
 
     @SuppressWarnings("unchecked")
@@ -161,23 +165,22 @@ public class OverView extends javax.swing.JFrame {
     }//GEN-LAST:event_miNvSecretarioActionPerformed
 
     private void miCriarAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCriarAgendaActionPerformed
-        // TODO add your handling code here:
-        CriarAgendasView criarAgendas = new CriarAgendasView();
-        criarAgendas.setVisible(true);
-        
-        
-        
-        
+        for (Iterator it = listAux.iterator(); it.hasNext();) {
+            CriarAgendasView a = (CriarAgendasView) it.next();
+            a.setVisible(true);
+        }
     }//GEN-LAST:event_miCriarAgendaActionPerformed
     
+    public void gerenciarAgendas(){
+        if(listAux.isEmpty()){
+            CriarAgendasView criarAgendas = new CriarAgendasView();
+            listAux.add(criarAgendas);
+        }
+    }
     public static void main(String args[]) {
         
-        
     }
-    
-    
-    
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar mbMenuBar;
     private javax.swing.JMenu meAgenda;

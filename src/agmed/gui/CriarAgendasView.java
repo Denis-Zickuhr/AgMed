@@ -5,19 +5,18 @@
  */
 package agmed.gui;
 
+import agmed.Agenda;
 import agmed.Medico;
-import agmed.PessoaFisica;
 
 
 public class CriarAgendasView extends javax.swing.JFrame {
-
-    private Iterable<PessoaFisica> medicoList;
 
     /**
      * Creates new form CriarConsultasView
      */
     public CriarAgendasView() {
         initComponents();
+        cbMedicoList.setVisible(false);
     }
 
     /**
@@ -29,16 +28,14 @@ public class CriarAgendasView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbMedicoList = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        cbMedicoListString = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cbMedicoList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cbMedicoListActionPerformed(evt);
             }
         });
 
@@ -51,42 +48,58 @@ public class CriarAgendasView extends javax.swing.JFrame {
             }
         });
 
+        cbMedicoListString.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbMedicoListStringActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(jLabel1)
-                        .addGap(38, 38, 38)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(jButton1)))
-                .addContainerGap(66, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(cbMedicoList, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(cbMedicoListString, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1)
+                        .addGap(42, 42, 42)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(33, 33, 33)
+                .addComponent(cbMedicoList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbMedicoListString, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(59, 59, 59)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        for (Medico m : CadastrarMedicosView.getMedicoList()){
+                   if(cbMedicoList.getItemAt(cbMedicoListString.getSelectedIndex()).getNome().equals(m.getNome())){
+                   Agenda a = new Agenda(m);
+                   System.out.println(a.toString());
+                   }
+               }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cbMedicoListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMedicoListActionPerformed
         // TODO add your handling code here:
         /*
          for(Secretario sec : userList) {
@@ -96,15 +109,28 @@ public class CriarAgendasView extends javax.swing.JFrame {
 	}
         */
         
-        for (PessoaFisica pes : medicoList){
-            
-        }
-        
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+       
+    }//GEN-LAST:event_cbMedicoListActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void cbMedicoListStringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMedicoListStringActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbMedicoListStringActionPerformed
+
+    public static void addItems(Medico o){
+        cbMedicoList.addItem(o);
+    }
+    public static void addItems(String o){
+        cbMedicoListString.addItem(o);
+    }
+    
+    public static void RemoveAllItems(){
+        cbMedicoList.removeAllItems();
+    }
+    
+        public static void RemoveAllItems(String x){
+        cbMedicoListString.removeAllItems();
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -139,8 +165,9 @@ public class CriarAgendasView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private static javax.swing.JComboBox<Medico> cbMedicoList;
+    private static javax.swing.JComboBox<String> cbMedicoListString;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<Object> jComboBox1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
