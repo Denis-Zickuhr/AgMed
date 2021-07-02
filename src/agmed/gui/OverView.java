@@ -7,10 +7,11 @@ public class OverView extends javax.swing.JFrame {
 
     public OverView() {
         initComponents();
-        gerenciarAgendas();
+        gerenciarTelas();
 
     }
     private static final List listAux = new ArrayList();
+    private static final List listAux2 = new ArrayList();
     
 
     @SuppressWarnings("unchecked")
@@ -148,8 +149,12 @@ public class OverView extends javax.swing.JFrame {
     }//GEN-LAST:event_miNvMedicoActionPerformed
 
     private void miGerenCadastrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miGerenCadastrosActionPerformed
-        GerenciarCadastrosView gerenciarCadastros = new GerenciarCadastrosView();
-        gerenciarCadastros.setVisible(true);
+        for (Object a: listAux) {
+            if(a instanceof GerenciarCadastrosView){
+                GerenciarCadastrosView b = (GerenciarCadastrosView)a;
+                b.setVisible(true);
+            }
+        }
     }//GEN-LAST:event_miGerenCadastrosActionPerformed
 
     private void miLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLogOutActionPerformed
@@ -164,17 +169,21 @@ public class OverView extends javax.swing.JFrame {
     }//GEN-LAST:event_miNvSecretarioActionPerformed
 
     private void miCriarAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCriarAgendaActionPerformed
-        for (Iterator it = listAux.iterator(); it.hasNext();) {
-            CriarAgendasView a = (CriarAgendasView) it.next();
-            a.setVisible(true);
+        for (Object a: listAux) {
+            if(a instanceof CriarAgendasView){
+                CriarAgendasView b = (CriarAgendasView)a;
+                b.setVisible(true);
+            }
         }
     }//GEN-LAST:event_miCriarAgendaActionPerformed
     
-    public static void gerenciarAgendas(){
+    public static void gerenciarTelas(){
         if(listAux.isEmpty()){
             CriarAgendasView criarAgendas = new CriarAgendasView();
+            GerenciarCadastrosView gerirCadastros = new GerenciarCadastrosView();
             listAux.add(criarAgendas);
-        }
+            listAux.add(gerirCadastros);
+        }      
     }
     public static void main(String args[]) {
         

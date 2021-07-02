@@ -70,6 +70,10 @@
             return aux;
         }
         
+        public String toString(){
+            return nome;
+        }
+        
         
 }
 

@@ -1,14 +1,16 @@
 
 package agmed.gui;
 
+import agmed.Cliente;
 import agmed.Medico;
-import javax.swing.JList;
+import agmed.PessoaFisica;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GerenciarCadastrosView extends javax.swing.JFrame {
-
-    /**
-     * Creates new form gerenciarCadastrosView
-     */
+    
+    private static List<PessoaFisica> investigados = new ArrayList();
+    
     public GerenciarCadastrosView() {
         initComponents();
     }
@@ -22,34 +24,30 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cbExMed = new javax.swing.JCheckBox();
-        cbExClie = new javax.swing.JCheckBox();
-        tfPesquisar = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        liCadastrados1 = new javax.swing.JList<>();
-        Pesquisar = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        liCadastrados = new javax.swing.JList<>();
-        btPesquisar = new javax.swing.JButton();
+        cbMedicoList = new javax.swing.JComboBox<>();
+        cbClienteList = new javax.swing.JComboBox<>();
+        Medicos = new javax.swing.JLabel();
+        Clientes = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        tfPesquisar = new javax.swing.JTextField();
+        btOk = new javax.swing.JButton();
+        btOk1 = new javax.swing.JButton();
+        btOk2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        cbExMed.setSelected(true);
-        cbExMed.setText("Exibir Médicos");
-        cbExMed.addActionListener(new java.awt.event.ActionListener() {
+        cbMedicoList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbExMedActionPerformed(evt);
+                cbMedicoListActionPerformed(evt);
             }
         });
 
-        cbExClie.setText("Exibir Clientes");
-        cbExClie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbExClieActionPerformed(evt);
-            }
-        });
+        Medicos.setText("Médicos:");
+
+        Clientes.setText("Clientes:");
+
+        jLabel1.setText("Pesquisar");
 
         tfPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,65 +55,76 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        liCadastrados1.setModel(new javax.swing.AbstractListModel<Object>() {
-            String[] strings = { "Item 1", "Item 2" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+        btOk.setText("OK!");
+        btOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btOkActionPerformed(evt);
+            }
         });
-        jScrollPane2.setViewportView(liCadastrados1);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 132, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(22, 22, 22)))
-        );
+        btOk1.setText("OK!");
+        btOk1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btOk1ActionPerformed(evt);
+            }
+        });
 
-        Pesquisar.setText("Pesqusar:");
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jScrollPane1.setViewportView(liCadastrados);
+        btOk2.setText("OK!");
+        btOk2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btOk2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Clientes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btOk1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbClienteList, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Medicos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btOk2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbMedicoList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btOk)))
+                .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btOk))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbMedicoList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btOk2)
+                    .addComponent(Medicos))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbClienteList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btOk1)
+                    .addComponent(Clientes))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
-
-        btPesquisar.setText("Pesquisar");
-        btPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btPesquisarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,63 +132,80 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cbExMed)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbExClie)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Pesquisar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(tfPesquisar)
-                        .addComponent(btPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbExMed)
-                    .addComponent(cbExClie)
-                    .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Pesquisar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btPesquisar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, Short.MAX_VALUE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbExMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbExMedActionPerformed
-        
-    }//GEN-LAST:event_cbExMedActionPerformed
-
-    private void cbExClieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbExClieActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbExClieActionPerformed
-
     private void tfPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesquisarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPesquisarActionPerformed
 
-    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btPesquisarActionPerformed
+    private void btOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOkActionPerformed
+            for(Medico m: CadastrarMedicosView.getMedicoList()){
+                if(m.getNome().equals(tfPesquisar.getText())){
+                    investigados.add(m);
+                    AlterarPropriedadesView tela = new AlterarPropriedadesView();
+                    tela.setVisible(true);
+                    break;
+                }
+            }
+            if(investigados.size() == 0){
+                for(Cliente c: CadastrarClientesView.getClienteList()){
+                    if(c.getNome().equals(tfPesquisar.getText())){
+                        investigados.add(c);
+                        AlterarPropriedadesView tela = new AlterarPropriedadesView();
+                        tela.setVisible(true);
+                        break;
+                    }
+                }
+            }
+            AlterarPropriedadesView.setTaDados();
+    }//GEN-LAST:event_btOkActionPerformed
 
-    public static void add(Medico m){
-        //
+    private void btOk1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOk1ActionPerformed
+        investigados.add(cbClienteList.getItemAt(cbClienteList.getSelectedIndex()));
+        AlterarPropriedadesView tela = new AlterarPropriedadesView();
+        AlterarPropriedadesView.setTaDados();
+        tela.setVisible(true);
+    }//GEN-LAST:event_btOk1ActionPerformed
+
+    private void btOk2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOk2ActionPerformed
+        investigados.add(cbMedicoList.getItemAt(cbMedicoList.getSelectedIndex()));
+        AlterarPropriedadesView tela = new AlterarPropriedadesView();
+        AlterarPropriedadesView.setTaDados();
+        tela.setVisible(true);
+    }//GEN-LAST:event_btOk2ActionPerformed
+
+    private void cbMedicoListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMedicoListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbMedicoListActionPerformed
+
+    public static void addItems(Cliente o){
+        cbClienteList.addItem(o);
     }
+    
+    public static void addItems(Medico o){
+        cbMedicoList.addItem(o);
+    }
+    
+    public static void clear(){
+        investigados.clear();
+    }
+    
+    public static List getInvestigados(){
+        return investigados;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -217,16 +243,15 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Pesquisar;
-    private javax.swing.JButton btPesquisar;
-    private javax.swing.JCheckBox cbExClie;
-    private javax.swing.JCheckBox cbExMed;
+    private javax.swing.JLabel Clientes;
+    private javax.swing.JLabel Medicos;
+    private javax.swing.JButton btOk;
+    private javax.swing.JButton btOk1;
+    private javax.swing.JButton btOk2;
+    private static javax.swing.JComboBox<Cliente> cbClienteList;
+    private static javax.swing.JComboBox<Medico> cbMedicoList;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private static javax.swing.JList<Medico> liCadastrados;
-    private static javax.swing.JList<Object> liCadastrados1;
     private javax.swing.JTextField tfPesquisar;
     // End of variables declaration//GEN-END:variables
 }

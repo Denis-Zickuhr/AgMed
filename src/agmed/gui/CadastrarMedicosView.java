@@ -191,9 +191,9 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
         medicoList.add(medico);
         for (Medico pes : CadastrarMedicosView.getMedicoListAux()) {
             CriarAgendasView.addItems(pes);
+            GerenciarCadastrosView.addItems(pes);
             medicoListAux.remove(pes);
         }
-        GerenciarCadastrosView.add(medico);
         this.dispose();
     }//GEN-LAST:event_btCadastrarActionPerformed
 

@@ -1,12 +1,14 @@
 package agmed.gui;
 import agmed.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import javax.swing.UIManager;
 
 public class CadastrarClientesView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CasdatrarClientesView
-     */
+    private final static Set<Cliente> clienteList = new LinkedHashSet();
+    private final static Set<Cliente> clienteListAux = new LinkedHashSet();
+    
     public CadastrarClientesView() {
         initComponents();
     }
@@ -144,7 +146,13 @@ public class CadastrarClientesView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-        PessoaFisica pessoa = new Cliente(tfNome.getText(),tfCPF.getText(),tfEndereco.getText(),tfContato.getText());
+        Cliente pessoa = new Cliente(tfNome.getText(),tfCPF.getText(),tfEndereco.getText(),tfContato.getText());
+        clienteListAux.add(pessoa);
+        clienteList.add(pessoa);
+        for (Cliente pes : CadastrarClientesView.getClienteListAux()) {
+            GerenciarCadastrosView.addItems(pes);
+            clienteListAux.remove(pes);
+        }
         this.dispose();
     }//GEN-LAST:event_btCadastrarActionPerformed
 
@@ -167,7 +175,14 @@ public class CadastrarClientesView extends javax.swing.JFrame {
     private void tfNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNomeKeyReleased
         disableButton();
     }//GEN-LAST:event_tfNomeKeyReleased
-
+    
+    public static Set<Cliente> getClienteList(){
+        return clienteList;
+    }
+    
+     public static Set<Cliente> getClienteListAux(){
+        return clienteListAux;
+    }
    
     public static void disableButton(){
         if(!(tfNome.getText().equals("") | tfCPF.getText().equals("")
