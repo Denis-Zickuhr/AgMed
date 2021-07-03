@@ -1,8 +1,8 @@
 
 build/classes/.netbeans_update_resources
 build/classes/.netbeans_automatic_build
-build/
-nbproject/
+/build/
+/nbproject/
 *.class
 *.class
 *.class
