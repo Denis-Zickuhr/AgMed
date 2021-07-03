@@ -6,10 +6,11 @@ import agmed.Autenticador;
 import agmed.AgMed;
 import static agmed.AgMed.userList;
 
-public class LoginView extends javax.swing.JFrame {
+public class LoginScreenView extends javax.swing.JFrame {
     
-    public LoginView() {
+    public LoginScreenView() {
         initComponents();
+        AgMed.preset();
     }
 
     @SuppressWarnings("unchecked")
@@ -101,8 +102,8 @@ public class LoginView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
-        OverView tela = new OverView();
-        Erro erro = new Erro();
+        MainView tela = new MainView();
+        ErrorScreenView erro = new ErrorScreenView();
         
         Autenticador auten = new Autenticador();
         
@@ -148,7 +149,7 @@ public class LoginView extends javax.swing.JFrame {
      
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginView().setVisible(true);
+                new LoginScreenView().setVisible(true);
             }
         });
     }

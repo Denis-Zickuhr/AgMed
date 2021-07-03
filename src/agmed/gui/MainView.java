@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class OverView extends javax.swing.JFrame {
+public class MainView extends javax.swing.JFrame {
 
-    public OverView() {
+    public MainView() {
         initComponents();
         gerenciarTelas();
 
@@ -158,7 +158,7 @@ public class OverView extends javax.swing.JFrame {
     }//GEN-LAST:event_miGerenCadastrosActionPerformed
 
     private void miLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLogOutActionPerformed
-        LoginView tela = new LoginView();
+        LoginScreenView tela = new LoginScreenView();
         tela.setVisible(true); 
         this.dispose();
     }//GEN-LAST:event_miLogOutActionPerformed
