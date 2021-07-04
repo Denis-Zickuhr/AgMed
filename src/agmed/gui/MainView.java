@@ -10,10 +10,8 @@ public class MainView extends javax.swing.JFrame {
         gerenciarTelas();
 
     }
-    private static final List listAux = new ArrayList();
-    private static final List listAux2 = new ArrayList();
+    private static final List telaCounter = new ArrayList();
     
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -149,7 +147,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_miNvMedicoActionPerformed
 
     private void miGerenCadastrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miGerenCadastrosActionPerformed
-        for (Object a: listAux) {
+        for (Object a: telaCounter) {
             if(a instanceof GerenciarCadastrosView){
                 GerenciarCadastrosView b = (GerenciarCadastrosView)a;
                 b.setVisible(true);
@@ -169,7 +167,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_miNvSecretarioActionPerformed
 
     private void miCriarAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCriarAgendaActionPerformed
-        for (Object a: listAux) {
+        for (Object a: telaCounter) {
             if(a instanceof CriarAgendasView){
                 CriarAgendasView b = (CriarAgendasView)a;
                 b.setVisible(true);
@@ -178,11 +176,11 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_miCriarAgendaActionPerformed
     
     public static void gerenciarTelas(){
-        if(listAux.isEmpty()){
+        if(telaCounter.isEmpty()){
             CriarAgendasView criarAgendas = new CriarAgendasView();
             GerenciarCadastrosView gerirCadastros = new GerenciarCadastrosView();
-            listAux.add(criarAgendas);
-            listAux.add(gerirCadastros);
+            telaCounter.add(criarAgendas);
+            telaCounter.add(gerirCadastros);
         }      
     }
     public static void main(String args[]) {

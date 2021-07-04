@@ -9,6 +9,8 @@ import java.util.List;
 
 public class GerenciarCadastrosView extends javax.swing.JFrame {
     
+    
+    //Lista criada para gerenciar e vizualizar um objeto cadastrado no sistema//
     private static List<PessoaFisica> investigados = new ArrayList();
     
     public GerenciarCadastrosView() {
