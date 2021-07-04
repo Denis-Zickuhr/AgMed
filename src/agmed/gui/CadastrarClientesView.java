@@ -1,13 +1,13 @@
 package agmed.gui;
 import agmed.*;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import javax.swing.UIManager;
+import static agmed.gui.GerenciarCadastrosView.cbClienteList;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CadastrarClientesView extends javax.swing.JFrame {
 
-    private final static Set<Cliente> clienteList = new LinkedHashSet();
-    private final static Set<Cliente> clienteListAux = new LinkedHashSet();
+    final static List<Cliente> clienteList = new ArrayList();
+    private final static List<Cliente> auxList = new ArrayList();
     
     public CadastrarClientesView() {
         initComponents();
@@ -147,12 +147,8 @@ public class CadastrarClientesView extends javax.swing.JFrame {
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         Cliente pessoa = new Cliente(tfNome.getText(),tfCPF.getText(),tfEndereco.getText(),tfContato.getText());
-        clienteListAux.add(pessoa);
         clienteList.add(pessoa);
-        for (Cliente pes : CadastrarClientesView.getClienteListAux()) {
-            GerenciarCadastrosView.addItems(pes);
-            clienteListAux.remove(pes);
-        }
+        putClientesInCB();
         this.dispose();
     }//GEN-LAST:event_btCadastrarActionPerformed
 
@@ -176,14 +172,54 @@ public class CadastrarClientesView extends javax.swing.JFrame {
         disableButton();
     }//GEN-LAST:event_tfNomeKeyReleased
     
-    public static Set<Cliente> getClienteList(){
+    public static List<Cliente> getClienteList(){
         return clienteList;
     }
+       
     
-     public static Set<Cliente> getClienteListAux(){
-        return clienteListAux;
+    //esse metodo troca um cliente desaatualziado por um atualizado//
+    public static void alteracaoFeita(Cliente c){
+
+        for(int i = 0; i < clienteList.size(); i++){
+            
+            Cliente cliente = clienteList.get(i);
+            
+            if(cliente.getCPF().equals(c.getCPF())){
+                auxList.add(cliente);
+                auxList.add(c);
+            }
+        }
+        
+        validacaoDeAlteracao(auxList.get(0), auxList.get(1));
     }
-   
+         
+    public static void validacaoDeAlteracao(Cliente cliente, Cliente c){
+        int index = clienteList.indexOf(cliente);
+        clienteList.remove(cliente);
+        clienteList.add(index, c);
+        putClientesInCB();
+        auxList.clear();
+    }
+     
+    public static void putClientesInCB(){
+ 
+         cbClienteList.removeAllItems();
+         
+         for (Cliente pes : CadastrarClientesView.getClienteList()) {
+            GerenciarCadastrosView.addItems(pes);
+            GerenciarCadastrosView.clearInvestigados();
+            
+        }
+        System.out.println(clienteList);
+     }
+    
+    public static void putClientesInCB(Cliente c){
+
+            GerenciarCadastrosView.addItems(c);
+            clienteList.add(c);
+ 
+    }
+    
     public static void disableButton(){
         if(!(tfNome.getText().equals("") | tfCPF.getText().equals("")
                 | tfEndereco.getText().equals("")

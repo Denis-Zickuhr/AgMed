@@ -137,7 +137,7 @@ public class CriarAgendasView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private static javax.swing.JComboBox<Medico> cbMedicoList;
+    static javax.swing.JComboBox<Medico> cbMedicoList;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

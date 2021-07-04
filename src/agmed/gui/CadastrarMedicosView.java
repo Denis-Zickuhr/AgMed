@@ -1,14 +1,14 @@
 
 package agmed.gui;
 import agmed.*;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import static agmed.gui.GerenciarCadastrosView.cbMedicoList;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CadastrarMedicosView extends javax.swing.JFrame {
 
-    private final static Set<Medico> medicoList = new LinkedHashSet();
-    private final static Set<Medico> medicoListAux = new LinkedHashSet();
+    final static List<Medico> medicoList = new ArrayList();
+    private final static List<Medico> auxList = new ArrayList();
     
     public CadastrarMedicosView() {
         initComponents();
@@ -187,13 +187,8 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
         Medico medico = new Medico(tfNome.getText(),tfCPF.getText(),
                 tfEndereco.getText(),tfContato.getText(), tfCRM.getText(),
                 tfEsp.getText(), tfFun.getText());
-        medicoListAux.add(medico);
         medicoList.add(medico);
-        for (Medico pes : CadastrarMedicosView.getMedicoListAux()) {
-            CriarAgendasView.addItems(pes);
-            GerenciarCadastrosView.addItems(pes);
-            medicoListAux.remove(pes);
-        }
+        putMedicosInCB();
         this.dispose();
     }//GEN-LAST:event_btCadastrarActionPerformed
 
@@ -229,13 +224,46 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
         disableButton();
     }//GEN-LAST:event_tfFunKeyReleased
 
-    public static Set<Medico> getMedicoList(){
+    public static List<Medico> getMedicoList(){
         return medicoList;
     }
-    
-     public static Set<Medico> getMedicoListAux(){
-        return medicoListAux;
+
+    public static void alteracaoFeita(Medico m){
+
+        for(int i = 0; i < medicoList.size(); i++){
+            
+            Medico medico = medicoList.get(i);
+            
+            if(medico.getCRM().equals(m.getCRM())){
+                auxList.add(medico);
+                auxList.add(m);
+            }
+        }
+        
+        validacaoDeAlteracao(auxList.get(0), auxList.get(1));
     }
+         
+    public static void validacaoDeAlteracao(Medico medico, Medico m){
+        int index = medicoList.indexOf(medico);
+        medicoList.remove(medico);
+        medicoList.add(index, m);
+        putMedicosInCB();
+        auxList.clear();
+    }
+    
+    public static void putMedicosInCB(){
+ 
+        CriarAgendasView.cbMedicoList.removeAllItems();
+        cbMedicoList.removeAllItems();
+         
+         for (Medico pes : CadastrarMedicosView.getMedicoList()) {
+            CriarAgendasView.addItems(pes);
+            GerenciarCadastrosView.addItems(pes);
+            GerenciarCadastrosView.clearInvestigados();
+        }
+         
+        System.out.println(medicoList);
+     }
     
     public static void disableButton(){
         if(!(tfNome.getText().equals("") | tfCPF.getText().equals("")
@@ -258,6 +286,14 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
             }
             
         });
+    }
+    
+        public static void putMedicosInCB(Medico m){
+
+            CriarAgendasView.addItems(m);
+            GerenciarCadastrosView.addItems(m);
+            medicoList.add(m);
+ 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

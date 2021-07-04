@@ -11,7 +11,7 @@
         }
        
         public final Map<String, Set<String>> historicoMedico = new HashMap<>();
-        private final Set<LinkedHashSet<String>> listOfLists = new LinkedHashSet<>();
+        public final Set<LinkedHashSet<String>> SetOfStrings = new LinkedHashSet<>();
         public void novaEntrada(String data, String desc, String hora){
         
             String dia = "Dia: " + data.substring(0,2)+"/"+data.substring(2,4)+"/"+data.substring(4, 8);
@@ -19,11 +19,11 @@
             if(!(historicoMedico.containsKey(data))){
                 LinkedHashSet<String> list = new LinkedHashSet<>();
                 list.add(dia);
-                listOfLists.add(list);
+                SetOfStrings.add(list);
                 historicoMedico.put(data, list);
             }
                 
-            for (Iterator<LinkedHashSet<String>> it1 = listOfLists.iterator(); it1.hasNext();){
+            for (Iterator<LinkedHashSet<String>> it1 = SetOfStrings.iterator(); it1.hasNext();){
                 
                 LinkedHashSet<String> listAux = it1.next();
                 
@@ -39,13 +39,13 @@
                             list.add(text);
                         }
                     }
-                
+                    
                     historicoMedico.put(data, list);
                     
                 }
             }
         }
-        public void limparHistórico(){
+        public  void limparHistórico(){
             
             historicoMedico.clear();
             
@@ -56,7 +56,13 @@
             
         }      
         public String getHistoricoMedico(String data){
+            
+
             String dia = data.substring(0,2)+"/"+data.substring(2,4)+"/"+data.substring(4, 8);
+                
+                
+            
+            
             return dia + ":" + historicoMedico.get(data) + "\n";
         }
         public String getHistoricoMedico(){

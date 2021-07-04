@@ -5,6 +5,7 @@
  */
 package agmed.gui;
 import agmed.Cliente;
+import static agmed.gui.GerenciarCadastrosView.investigados;
 import java.util.List;
 
 /**
@@ -41,6 +42,7 @@ public class AlterarPropriedadesCView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         cbECon = new javax.swing.JCheckBox();
         cbEEnd = new javax.swing.JCheckBox();
+        btEHM = new javax.swing.JButton();
         btExcluir = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
         btDispensar = new javax.swing.JButton();
@@ -79,11 +81,18 @@ public class AlterarPropriedadesCView extends javax.swing.JFrame {
             }
         });
 
+        btEHM.setText(" Historico Médico");
+        btEHM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEHMActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -92,14 +101,19 @@ public class AlterarPropriedadesCView extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfCon, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                    .addComponent(tfEnd)
-                    .addComponent(tfCPF)
-                    .addComponent(tfNome))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbECon)
-                    .addComponent(cbEEnd, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfCon, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                            .addComponent(tfEnd)
+                            .addComponent(tfCPF)
+                            .addComponent(tfNome))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbECon)
+                            .addComponent(cbEEnd, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btEHM, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -119,7 +133,9 @@ public class AlterarPropriedadesCView extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tfCon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbECon))
-                        .addGap(136, 136, 136))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btEHM)
+                        .addGap(109, 109, 109))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -174,8 +190,8 @@ public class AlterarPropriedadesCView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btDispensar)
                     .addComponent(btExcluir)
@@ -187,11 +203,14 @@ public class AlterarPropriedadesCView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
-        // TODO add your handling code here:
+        CadastrarClientesView.clienteList.remove((Cliente)investigados.get(0));
+        CadastrarClientesView.putClientesInCB();
+        this.dispose();
     }//GEN-LAST:event_btExcluirActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        // TODO add your handling code here:
+        GerenciarCadastrosView.alteracoesSalvas(tfEnd.getText(), tfCon.getText());
+        this.dispose();
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void cbEEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEEndActionPerformed
@@ -213,9 +232,14 @@ public class AlterarPropriedadesCView extends javax.swing.JFrame {
     }//GEN-LAST:event_cbEConActionPerformed
 
     private void btDispensarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDispensarActionPerformed
-        GerenciarCadastrosView.clear();
+        GerenciarCadastrosView.clearInvestigados();
         this.dispose();
     }//GEN-LAST:event_btDispensarActionPerformed
+
+    private void btEHMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEHMActionPerformed
+            HistoricoMedicoView historicoMedicoView = new HistoricoMedicoView();
+            historicoMedicoView.setVisible(true);
+    }//GEN-LAST:event_btEHMActionPerformed
 
     public static void fillChart(List investigados){
         Cliente c = (Cliente) investigados.get(0);
@@ -265,6 +289,7 @@ public class AlterarPropriedadesCView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDispensar;
+    private javax.swing.JButton btEHM;
     private javax.swing.JButton btExcluir;
     private javax.swing.JButton btSalvar;
     private javax.swing.JCheckBox cbECon;

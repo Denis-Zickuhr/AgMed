@@ -6,6 +6,7 @@
 package agmed.gui;
 import agmed.Medico;
 import java.util.List;
+import static agmed.gui.GerenciarCadastrosView.investigados;
 
 /**
  *
@@ -247,16 +248,19 @@ public class AlterarPropriedadesMView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btDispensarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDispensarActionPerformed
-        GerenciarCadastrosView.clear();
+        GerenciarCadastrosView.clearInvestigados();
         this.dispose();
     }//GEN-LAST:event_btDispensarActionPerformed
 
     private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
-        // TODO add your handling code here:
+        CadastrarMedicosView.medicoList.remove((Medico)investigados.get(0));
+        CadastrarMedicosView.putMedicosInCB();
+        this.dispose();
     }//GEN-LAST:event_btExcluirActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        // TODO add your handling code here:
+        GerenciarCadastrosView.alteracoesSalvas(tfEnd.getText(), tfCon.getText(), tfFun.getText(), tfEsp.getText());
+        this.dispose();
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void cbEEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEEndActionPerformed
@@ -305,9 +309,7 @@ public class AlterarPropriedadesMView extends javax.swing.JFrame {
         tfEsp.setText(m.getEspc());
         tfFun.setText(m.getFuncao()); 
     }
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

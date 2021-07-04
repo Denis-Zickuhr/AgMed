@@ -1,6 +1,7 @@
 package agmed.gui;
+import agmed.Cliente;
+import agmed.Medico;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class MainView extends javax.swing.JFrame {
@@ -8,6 +9,7 @@ public class MainView extends javax.swing.JFrame {
     public MainView() {
         initComponents();
         gerenciarTelas();
+        loadPreset();
 
     }
     private static final List telaCounter = new ArrayList();
@@ -182,6 +184,46 @@ public class MainView extends javax.swing.JFrame {
             telaCounter.add(criarAgendas);
             telaCounter.add(gerirCadastros);
         }      
+    }
+    
+    public void loadPreset(){
+        
+        String[] nomes = new String[]{"João", "Marcos", "Dino", "Samuel", "Kaio",
+                                        "Ketrin" , "Jorge", "Luis", "Gabriel", "Bruno"};
+        String[] cpfs = new String[]{"48184848", "515418181", "188118446", "51848118481", "188181848",
+                                        "415184815" , "155481551", "2548484212", "5844881", "8499984848"
+        };
+        
+        String[] enderecos = new String[]{"Rua 1", "Rua 2", "Rua 3", "Rua 4", "Rua das flores",
+                                        "Rua da pipa" , "rua 2", "Rua 1", "Rua 1", "pavilhão"
+        };
+        
+        String[] contatos = new String[]{"João@gmail.com", "Marcos@gmail.com", "Dino@gmail.com", 
+                                        "Samuel@gmail.com", "Kaio@gmail.com", "Ketrin@gmail.com",
+                                        "Jorge@gmail.com", "Luis@gmail.com", "Gabriel@gmail.com",
+                                        "Bruno@gmail.com"
+        };
+        String[] crms = new String[]{
+            "13125", "84111", "48481", "84811", "77741"
+        };
+        String[] espcs = new String[]{
+            "Clinico geral", "Psiquiatra", "Ortopedista", "Cirurgiao", "Ginecologista"
+        };
+        String[] funs = new String[]{
+            "Clinico geral", "Psiquiatra e Zelador", "Ortopedista", "Cirurgiao", "Ginecologista"
+        };
+                
+        
+        for(int i = 5; i < 10; i++){
+            Cliente c = new Cliente(nomes[i], cpfs[i], enderecos[i], contatos[i]);
+            CadastrarClientesView.putClientesInCB(c);
+        }
+        
+        for(int i = 0; i < 5; i++){
+            Medico m = new Medico(nomes[i], cpfs[i], enderecos[i], contatos[i], crms[i], espcs[i], funs[i]);
+            CadastrarMedicosView.putMedicosInCB(m);
+        }
+    
     }
     public static void main(String args[]) {
         

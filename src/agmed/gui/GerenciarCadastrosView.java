@@ -4,14 +4,19 @@ package agmed.gui;
 import agmed.Cliente;
 import agmed.Medico;
 import agmed.PessoaFisica;
+import static agmed.gui.CadastrarMedicosView.alteracaoFeita;
+import static agmed.gui.CadastrarClientesView.alteracaoFeita;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GerenciarCadastrosView extends javax.swing.JFrame {
     
     
     //Lista criada para gerenciar e vizualizar um objeto cadastrado no sistema//
-    private static List<PessoaFisica> investigados = new ArrayList();
+     static List<PessoaFisica> investigados = new ArrayList();
     
     public GerenciarCadastrosView() {
         initComponents();
@@ -36,6 +41,7 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
         btOk = new javax.swing.JButton();
         btOk1 = new javax.swing.JButton();
         btOk2 = new javax.swing.JButton();
+        btDispensar = new javax.swing.JButton();
 
         setType(java.awt.Window.Type.POPUP);
 
@@ -130,6 +136,13 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
+        btDispensar.setText("Dispensar");
+        btDispensar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDispensarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,12 +151,18 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btDispensar)
+                .addGap(97, 97, 97))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btDispensar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -155,34 +174,42 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
     }//GEN-LAST:event_tfPesquisarActionPerformed
 
     private void btOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOkActionPerformed
-            for(Medico m: CadastrarMedicosView.getMedicoList()){
-                if(m.getNome().equals(tfPesquisar.getText())){
-                    investigados.add(m);
+        
+        String aux = tfPesquisar.getText();
+        
+        for(PessoaFisica p: CadastrarMedicosView.getMedicoList()){
+                if(p.getNome().equals(tfPesquisar.getText())){
+                    investigados.add(p);
                     AlterarPropriedadesMView tela = new AlterarPropriedadesMView();
                     tela.setVisible(true);
+                    tfPesquisar.setText("");
                     break;
                 }
             }
-            if(investigados.size() == 0){
-                for(Cliente c: CadastrarClientesView.getClienteList()){
-                    if(c.getNome().equals(tfPesquisar.getText())){
-                        investigados.add(c);
-                        AlterarPropriedadesMView tela = new AlterarPropriedadesMView();
-                        tela.setVisible(true);
-                        break;
-                    }
+            for(PessoaFisica p: CadastrarClientesView.getClienteList()){
+                if(p.getNome().equals(tfPesquisar.getText())){
+                    investigados.add(p);
+                    AlterarPropriedadesCView tela = new AlterarPropriedadesCView();
+                    tela.setVisible(true);
+                    tfPesquisar.setText("");
+                    break;
                 }
+            }
+            if(tfPesquisar.getText().equals(aux)){
+                tfPesquisar.setText("Não encontrado!");
             }
             
     }//GEN-LAST:event_btOkActionPerformed
 
     private void btOk1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOk1ActionPerformed
+        clearInvestigados();
         investigados.add(cbClienteList.getItemAt(cbClienteList.getSelectedIndex()));
         AlterarPropriedadesCView tela = new AlterarPropriedadesCView();
         tela.setVisible(true);
     }//GEN-LAST:event_btOk1ActionPerformed
 
     private void btOk2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOk2ActionPerformed
+        clearInvestigados();
         investigados.add(cbMedicoList.getItemAt(cbMedicoList.getSelectedIndex()));
         AlterarPropriedadesMView tela = new AlterarPropriedadesMView();
         
@@ -193,6 +220,10 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbMedicoListActionPerformed
 
+    private void btDispensarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDispensarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btDispensarActionPerformed
+
     public static void addItems(Cliente o){
         cbClienteList.addItem(o);
     }
@@ -201,7 +232,7 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
         cbMedicoList.addItem(o);
     }
     
-    public static void clear(){
+    public static void clearInvestigados(){
         investigados.clear();
     }
     
@@ -209,9 +240,37 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
         return investigados;
     }
     
-    /**
-     * @param args the command line arguments
-     */
+    public static void alteracoesSalvas(String con, String end, String espc, String fun){
+            
+        Medico m = (Medico)investigados.get(0);
+        m.setContato(con);
+        m.setEndereco(end);
+        m.setEspc(espc);
+        m.setFuncao(fun);
+        clearInvestigados();
+        for(int i = 0; i < CadastrarMedicosView.getMedicoList().size(); i++){
+            Medico medico = CadastrarMedicosView.getMedicoList().get(i);
+            if(medico.getCRM().equals(m.getCRM())){
+                alteracaoFeita(medico);
+            }
+        }
+    }
+    
+    public static void alteracoesSalvas(String con, String end){
+        if(investigados.get(0) instanceof Cliente){
+            Cliente c = (Cliente)investigados.get(0);
+            c.setContato(con);
+            c.setEndereco(end);
+            clearInvestigados();
+            for(int i = 0; i < CadastrarClientesView.getClienteList().size(); i++){
+            Cliente cliente = CadastrarClientesView.getClienteList().get(i);
+            if(cliente.getCPF().equals(c.getCPF())){
+                alteracaoFeita(cliente);
+            }
+        }
+        }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -248,11 +307,12 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Clientes;
     private javax.swing.JLabel Medicos;
+    private javax.swing.JButton btDispensar;
     private javax.swing.JButton btOk;
     private javax.swing.JButton btOk1;
     private javax.swing.JButton btOk2;
-    private static javax.swing.JComboBox<Cliente> cbClienteList;
-    private static javax.swing.JComboBox<Medico> cbMedicoList;
+    static javax.swing.JComboBox<Cliente> cbClienteList;
+    static javax.swing.JComboBox<Medico> cbMedicoList;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField tfPesquisar;
