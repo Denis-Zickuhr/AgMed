@@ -35,6 +35,8 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
         btOk1 = new javax.swing.JButton();
         btOk2 = new javax.swing.JButton();
 
+        setType(java.awt.Window.Type.POPUP);
+
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         cbMedicoList.addActionListener(new java.awt.event.ActionListener() {
@@ -154,7 +156,7 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
             for(Medico m: CadastrarMedicosView.getMedicoList()){
                 if(m.getNome().equals(tfPesquisar.getText())){
                     investigados.add(m);
-                    AlterarPropriedadesView tela = new AlterarPropriedadesView();
+                    AlterarPropriedadesMView tela = new AlterarPropriedadesMView();
                     tela.setVisible(true);
                     break;
                 }
@@ -163,26 +165,25 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
                 for(Cliente c: CadastrarClientesView.getClienteList()){
                     if(c.getNome().equals(tfPesquisar.getText())){
                         investigados.add(c);
-                        AlterarPropriedadesView tela = new AlterarPropriedadesView();
+                        AlterarPropriedadesMView tela = new AlterarPropriedadesMView();
                         tela.setVisible(true);
                         break;
                     }
                 }
             }
-            AlterarPropriedadesView.setTaDados();
+            
     }//GEN-LAST:event_btOkActionPerformed
 
     private void btOk1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOk1ActionPerformed
         investigados.add(cbClienteList.getItemAt(cbClienteList.getSelectedIndex()));
-        AlterarPropriedadesView tela = new AlterarPropriedadesView();
-        AlterarPropriedadesView.setTaDados();
+        AlterarPropriedadesCView tela = new AlterarPropriedadesCView();
         tela.setVisible(true);
     }//GEN-LAST:event_btOk1ActionPerformed
 
     private void btOk2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOk2ActionPerformed
         investigados.add(cbMedicoList.getItemAt(cbMedicoList.getSelectedIndex()));
-        AlterarPropriedadesView tela = new AlterarPropriedadesView();
-        AlterarPropriedadesView.setTaDados();
+        AlterarPropriedadesMView tela = new AlterarPropriedadesMView();
+        
         tela.setVisible(true);
     }//GEN-LAST:event_btOk2ActionPerformed
 
