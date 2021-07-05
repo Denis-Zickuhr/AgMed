@@ -8,9 +8,6 @@ import static agmed.gui.CadastrarMedicosView.alteracaoFeita;
 import static agmed.gui.CadastrarClientesView.alteracaoFeita;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class GerenciarCadastrosView extends javax.swing.JFrame {
     

@@ -14,6 +14,7 @@ public class MainView extends javax.swing.JFrame {
     }
     private static final List telaCounter = new ArrayList();
     
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -21,8 +22,6 @@ public class MainView extends javax.swing.JFrame {
         mbMenuBar = new javax.swing.JMenuBar();
         meAgenda = new javax.swing.JMenu();
         miVizAgnedas = new javax.swing.JMenuItem();
-        miAgendasArquivadas = new javax.swing.JMenuItem();
-        miCriarAgenda = new javax.swing.JMenuItem();
         meCadastro = new javax.swing.JMenu();
         miNvCliente = new javax.swing.JMenuItem();
         miNvMedico = new javax.swing.JMenuItem();
@@ -47,22 +46,6 @@ public class MainView extends javax.swing.JFrame {
             }
         });
         meAgenda.add(miVizAgnedas);
-
-        miAgendasArquivadas.setText("Agendas Arquivadas");
-        miAgendasArquivadas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miAgendasArquivadasActionPerformed(evt);
-            }
-        });
-        meAgenda.add(miAgendasArquivadas);
-
-        miCriarAgenda.setText("Criar agenda");
-        miCriarAgenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCriarAgendaActionPerformed(evt);
-            }
-        });
-        meAgenda.add(miCriarAgenda);
 
         mbMenuBar.add(meAgenda);
 
@@ -130,12 +113,13 @@ public class MainView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void miAgendasArquivadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgendasArquivadasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_miAgendasArquivadasActionPerformed
-
     private void miVizAgnedasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVizAgnedasActionPerformed
-        // TODO add your handling code here:
+         for (Object a: telaCounter) {
+            if(a instanceof VizualizarAgendas){
+                VizualizarAgendas b = (VizualizarAgendas)a;
+                b.setVisible(true);
+            }
+        }
     }//GEN-LAST:event_miVizAgnedasActionPerformed
         
     private void miNvClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNvClienteActionPerformed
@@ -167,22 +151,15 @@ public class MainView extends javax.swing.JFrame {
         CadastrarSecretarioView cadastrarSecretarioView = new CadastrarSecretarioView();
         cadastrarSecretarioView.setVisible(true);
     }//GEN-LAST:event_miNvSecretarioActionPerformed
-
-    private void miCriarAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCriarAgendaActionPerformed
-        for (Object a: telaCounter) {
-            if(a instanceof CriarAgendasView){
-                CriarAgendasView b = (CriarAgendasView)a;
-                b.setVisible(true);
-            }
-        }
-    }//GEN-LAST:event_miCriarAgendaActionPerformed
     
     public static void gerenciarTelas(){
         if(telaCounter.isEmpty()){
-            CriarAgendasView criarAgendas = new CriarAgendasView();
-            GerenciarCadastrosView gerirCadastros = new GerenciarCadastrosView();
-            telaCounter.add(criarAgendas);
-            telaCounter.add(gerirCadastros);
+            VizualizarAgendas va = new VizualizarAgendas();
+
+            GerenciarCadastrosView gc = new GerenciarCadastrosView();
+
+            telaCounter.add(gc);
+            telaCounter.add(va);
         }      
     }
     
@@ -213,16 +190,17 @@ public class MainView extends javax.swing.JFrame {
             "Clinico geral", "Psiquiatra e Zelador", "Ortopedista", "Cirurgiao", "Ginecologista"
         };
                 
+        for(int i = 0; i < 5; i++){
+            Medico m = new Medico(nomes[i], cpfs[i], enderecos[i], contatos[i], crms[i], espcs[i], funs[i]);
+            CadastrarMedicosView.putMedicosInCB(m);
+        }
         
         for(int i = 5; i < 10; i++){
             Cliente c = new Cliente(nomes[i], cpfs[i], enderecos[i], contatos[i]);
             CadastrarClientesView.putClientesInCB(c);
         }
         
-        for(int i = 0; i < 5; i++){
-            Medico m = new Medico(nomes[i], cpfs[i], enderecos[i], contatos[i], crms[i], espcs[i], funs[i]);
-            CadastrarMedicosView.putMedicosInCB(m);
-        }
+        
     
     }
     public static void main(String args[]) {
@@ -235,9 +213,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JMenu meCadastro;
     private javax.swing.JMenu meConsulta;
     private javax.swing.JMenu meUser;
-    private javax.swing.JMenuItem miAgendasArquivadas;
     private javax.swing.JCheckBoxMenuItem miCadastrarConsulta;
-    private javax.swing.JMenuItem miCriarAgenda;
     private javax.swing.JMenuItem miGerenCadastros;
     private javax.swing.JMenuItem miLogOut;
     private javax.swing.JMenuItem miNvCliente;

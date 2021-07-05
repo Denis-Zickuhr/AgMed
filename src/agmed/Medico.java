@@ -1,6 +1,9 @@
 
 package agmed;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 
 public class Medico extends PessoaFisica{
     

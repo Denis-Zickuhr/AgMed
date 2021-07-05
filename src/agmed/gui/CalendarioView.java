@@ -5,17 +5,30 @@
  */
 package agmed.gui;
 
-/**
- *
- * @author Augusto
- */
-public class CalendarioView extends javax.swing.JFrame {
+import agmed.Cliente;
+import agmed.Consulta;
+import agmed.Dia;
+import agmed.Medico;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
 
-    /**
-     * Creates new form Calendar
-     */
-    public CalendarioView() {
+
+
+public class CalendarioView extends javax.swing.JFrame {
+    
+    Set<Set<Dia>> set = new LinkedHashSet<>();
+    Medico m;
+    List<String> calendarioDec = new ArrayList();
+
+    public CalendarioView(Medico m) {
+        this.m = m;
         initComponents();
+        createCalendario("Janeiro");
     }
 
     /**
@@ -27,60 +40,341 @@ public class CalendarioView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        tpCalendario = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        btDispensar = new javax.swing.JButton();
+        btArquivarMes = new javax.swing.JButton();
+        btNovoMes = new javax.swing.JButton();
+        cbMes = new javax.swing.JComboBox<>();
+        btExcluirConsulta = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        cbClienteList = new javax.swing.JComboBox<>();
+        tfDia = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        btConfirmar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        tfEntrada = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        tfSaida = new javax.swing.JTextField();
+
+        jLabel1.setText("jLabel1");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Calendar");
         setResizable(false);
+        setType(java.awt.Window.Type.POPUP);
+
+        tpCalendario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tpCalendarioKeyReleased(evt);
+            }
+        });
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        btDispensar.setText("Dispensar");
+        btDispensar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDispensarActionPerformed(evt);
+            }
+        });
+
+        btArquivarMes.setText("Arquivar Mês");
+        btArquivarMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btArquivarMesActionPerformed(evt);
+            }
+        });
+
+        btNovoMes.setText("Novo Mês");
+        btNovoMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNovoMesActionPerformed(evt);
+            }
+        });
+
+        cbMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" }));
+
+        btExcluirConsulta.setText("Excluir Consulta");
+        btExcluirConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcluirConsultaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btDispensar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btExcluirConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btArquivarMes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btNovoMes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cbMes, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btArquivarMes)
+                    .addComponent(cbMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btNovoMes)
+                    .addComponent(btDispensar)
+                    .addComponent(btExcluirConsulta))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        tfDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfDiaActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Dia:");
+
+        btConfirmar.setText("Confirmar");
+        btConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConfirmarActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Entrada:");
+
+        jLabel4.setText("Saída");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cbClienteList, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tfDia, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cbClienteList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel3)
+                        .addComponent(tfEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4)
+                        .addComponent(tfSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tpCalendario))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tpCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btDispensarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDispensarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btDispensarActionPerformed
+
+    private void btNovoMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoMesActionPerformed
+        String txt = cbMes.getItemAt(cbMes.getSelectedIndex());
+        
+        if(tpCalendario.getComponentCount()== 6){
+            System.out.println("O limite de meses ativos é de 6 meses");
+        }
+        else{
+             if(!calendarioDec.contains(txt)){
+                    System.out.println(txt);
+                    createCalendario(txt);
+                }
+            
+            
+            
+        }
+    }//GEN-LAST:event_btNovoMesActionPerformed
+
+    private void btArquivarMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btArquivarMesActionPerformed
+    
+        
+        if(tpCalendario.getSelectedComponent() != null){
+            calendarioDec.remove(tpCalendario.getSelectedComponent().getName());
+            tpCalendario.remove(tpCalendario.getSelectedComponent());
+        }
+        
+        
+    }//GEN-LAST:event_btArquivarMesActionPerformed
+
+    private void btConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarActionPerformed
+        Consulta c = new Consulta((Cliente)cbClienteList.getSelectedItem());
+        addConsulta(c, tpCalendario.getSelectedComponent().getName());
+    }//GEN-LAST:event_btConfirmarActionPerformed
+
+    private void tfDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfDiaActionPerformed
+
+    private void btExcluirConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirConsultaActionPerformed
+        Consulta c = new Consulta((Cliente)cbClienteList.getSelectedItem());
+        removeConsulta(c, tpCalendario.getSelectedComponent().getName());
+    }//GEN-LAST:event_btExcluirConsultaActionPerformed
+
+    private void tpCalendarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tpCalendarioKeyReleased
+        
+    }//GEN-LAST:event_tpCalendarioKeyReleased
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CalendarioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CalendarioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CalendarioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CalendarioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+       
+    }
+    
+    public void createCalendario(String mes){
+        
+        DefaultListModel auxList = new DefaultListModel(); 
+        Set<Dia> SetDeDias = new LinkedHashSet<>();
+        
+        int numDias = 31;
+        if(mes.equalsIgnoreCase("Abril") | mes.equalsIgnoreCase("Junho")|
+           mes.equalsIgnoreCase("Junho") | mes.equalsIgnoreCase("Setembro")|
+           mes.equalsIgnoreCase("Novembro")){
+           numDias += -1; 
         }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CalendarioView().setVisible(true);
+        if(mes.equalsIgnoreCase("Fevereiro")){
+            numDias += -3;
+        }
+         for(int i = 1; i <= numDias; i++){
+            Dia d = new Dia(i+"");
+            SetDeDias.add(d);
+        }
+        
+        set.add(SetDeDias);
+        
+        for(Dia d : SetDeDias){
+            auxList.addElement(d);
+        }
+        
+        JList listd = new JList(auxList);
+        
+        calendarioDec.add(mes);
+                
+        JScrollPane j = new  JScrollPane(listd);  
+        j.setName(mes);
+        
+        tpCalendario.add(j, mes);
+        
+    }
+    
+    public  void addItems(Cliente c){
+        cbClienteList.addItem(c);
+    }
+    
+    public void addConsulta(Consulta c, String mes){
+        
+        String aux = "";
+        
+        for (Set<Dia> s: set){
+            if(tpCalendario.getSelectedComponent().getName().equals(mes)){
+                for (Dia d: s){
+                aux = d+"";
+                if(aux.equals(tfDia.getText() + ": ")){
+                    d.addConsulta(c, tfEntrada.getText(), tfSaida.getText());
+                    
+                }}
+            
+                
             }
-        });
+        }
     }
 
+    public void removeConsulta(Consulta c, String mes){
+        
+        String aux = "";
+        
+        for (Set<Dia> s: set){
+            if(tpCalendario.getSelectedComponent().getName().equals(mes)){
+                for (Dia d: s){
+                aux = d.getDia()+"";
+                System.out.println(aux);
+                if(aux.equals(tfDia.getText() + "")){
+                    
+                    d.removeConsulta(c);
+                    
+                }}
+            
+                
+            }
+        }
+        
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btArquivarMes;
+    private javax.swing.JButton btConfirmar;
+    private javax.swing.JButton btDispensar;
+    private javax.swing.JButton btExcluirConsulta;
+    private javax.swing.JButton btNovoMes;
+    javax.swing.JComboBox<Cliente> cbClienteList;
+    javax.swing.JComboBox<String> cbMes;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField tfDia;
+    private javax.swing.JTextField tfEntrada;
+    private javax.swing.JTextField tfSaida;
+    javax.swing.JTabbedPane tpCalendario;
     // End of variables declaration//GEN-END:variables
 }

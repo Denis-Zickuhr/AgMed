@@ -147,7 +147,8 @@ public class CadastrarClientesView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-        Cliente pessoa = new Cliente(tfNome.getText(),tfCPF.getText(),tfEndereco.getText(),tfContato.getText());
+        Cliente pessoa = new Cliente(tfNome.getText(),tfCPF.getText(),
+                tfEndereco.getText(),tfContato.getText());
         clienteList.add(pessoa);
         putClientesInCB();
         this.dispose();
@@ -205,9 +206,17 @@ public class CadastrarClientesView extends javax.swing.JFrame {
     public static void putClientesInCB(){
  
          cbClienteList.removeAllItems();
+         for (CalendarioView cv: CadastrarMedicosView.agendas){ 
+                cv.cbClienteList.removeAllItems();
+            }
          
-         for (Cliente pes : CadastrarClientesView.getClienteList()) {
-            GerenciarCadastrosView.addItems(pes);
+         for (Cliente c : CadastrarClientesView.getClienteList()) {
+            
+            GerenciarCadastrosView.addItems(c);
+            
+            for (CalendarioView cv: CadastrarMedicosView.agendas){
+                cv.addItems(c);
+            }
             GerenciarCadastrosView.clearInvestigados();
             
         }
@@ -216,6 +225,9 @@ public class CadastrarClientesView extends javax.swing.JFrame {
     
     public static void putClientesInCB(Cliente c){
 
+            for (CalendarioView cv: CadastrarMedicosView.agendas){
+                cv.addItems(c);
+            }
             GerenciarCadastrosView.addItems(c);
             clienteList.add(c);
  

@@ -3,12 +3,15 @@ package agmed.gui;
 import agmed.*;
 import static agmed.gui.GerenciarCadastrosView.cbMedicoList;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CadastrarMedicosView extends javax.swing.JFrame {
 
     final static List<Medico> medicoList = new ArrayList();
     private final static List<Medico> auxList = new ArrayList();
+    final static Set<CalendarioView> agendas = new LinkedHashSet<>();
     
     public CadastrarMedicosView() {
         initComponents();
@@ -190,6 +193,8 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
                 tfEsp.getText(), tfFun.getText());
         medicoList.add(medico);
         putMedicosInCB();
+        CalendarioView cv = new CalendarioView(medico);
+        CadastrarMedicosView.agendas.add(cv);
         this.dispose();
     }//GEN-LAST:event_btCadastrarActionPerformed
 
@@ -254,12 +259,14 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
     
     public static void putMedicosInCB(){
  
-        CriarAgendasView.cbMedicoList.removeAllItems();
+        
+        VizualizarAgendas.cbMedicoList.removeAllItems();
         cbMedicoList.removeAllItems();
          
-         for (Medico pes : CadastrarMedicosView.getMedicoList()) {
-            CriarAgendasView.addItems(pes);
-            GerenciarCadastrosView.addItems(pes);
+         for (Medico m : CadastrarMedicosView.getMedicoList()) {
+            
+            VizualizarAgendas.addItems(m);
+            GerenciarCadastrosView.addItems(m);
             GerenciarCadastrosView.clearInvestigados();
         }
          
@@ -291,8 +298,10 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
     
         public static void putMedicosInCB(Medico m){
 
-            CriarAgendasView.addItems(m);
+            CalendarioView cv = new CalendarioView(m);
+            CadastrarMedicosView.agendas.add(cv);
             GerenciarCadastrosView.addItems(m);
+            VizualizarAgendas.addItems(m);
             medicoList.add(m);
  
     }
