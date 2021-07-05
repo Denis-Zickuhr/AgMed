@@ -165,8 +165,8 @@ public class MainView extends javax.swing.JFrame {
     
     public void loadPreset(){
         
-        String[] nomes = new String[]{"João", "Marcos", "Dino", "Samuel", "Kaio",
-                                        "Ketrin" , "Jorge", "Luis", "Gabriel", "Bruno"};
+        String[] nomes = new String[]{"Dr. Hans Chucrute" , "Dr. Marcelo", "Dra. Rosane", "Dr. Salvador", "Dra. Kamila",
+                                        "Santos Gomes" , "George Soros", "Luis Pereira", "Gabriel Medina", "Bruno Muller"};
         String[] cpfs = new String[]{"48184848", "515418181", "188118446", "51848118481", "188181848",
                                         "415184815" , "155481551", "2548484212", "5844881", "8499984848"
         };
@@ -175,10 +175,10 @@ public class MainView extends javax.swing.JFrame {
                                         "Rua da pipa" , "rua 2", "Rua 1", "Rua 1", "pavilhão"
         };
         
-        String[] contatos = new String[]{"João@gmail.com", "Marcos@gmail.com", "Dino@gmail.com", 
-                                        "Samuel@gmail.com", "Kaio@gmail.com", "Ketrin@gmail.com",
-                                        "Jorge@gmail.com", "Luis@gmail.com", "Gabriel@gmail.com",
-                                        "Bruno@gmail.com"
+        String[] contatos = new String[]{"HansXuXu71@gmail.com", "MarsCell@gmail.com", "DinoSaurro@gmail.com", 
+                                         "LindaMorena33@gmail.com", "Santinhoo22@gmail.com",
+                                        "sorosoroe12@gmail.com", "LuisUU@gmail.com", "GPatuuu21@gmail.com",
+                                        "BrunoSol@gmail.com"
         };
         String[] crms = new String[]{
             "13125", "84111", "48481", "84811", "77741"

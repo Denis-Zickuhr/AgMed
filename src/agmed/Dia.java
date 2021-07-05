@@ -7,11 +7,13 @@ package agmed;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class Dia {
     
     private String numero;
     private List<String> list = new ArrayList<>();
+    private String velha = "";
     
     public Dia(String d){
         this.numero = d;
@@ -34,16 +36,32 @@ public class Dia {
     }
     
     public void addConsulta(Consulta c, String e, String s){
-        c.setHora(e, s);
-        list.add(c.toString());
+        
+        System.out.print("aaaa");
+        removeConsulta(c);
+        c.setHora(e+"h", s+"h");
+        String nova = c.toString(); 
+        nova = c.toString();
+        nova = velha + " " + nova;
+        list.add(nova);
+        
     }
     
     public void removeConsulta(Consulta c){
-        list.remove(c.toString());
+        for (int i = 0; i < list.size(); i++){
+            if(list.get(i).contains(c.toString().substring(10, 15))){
+                list.remove(list.get(i));
+            }
+        }
+        
     }
     
     public String getDia(){
         return numero;
+    }
+    
+    public List<String> getList(){
+        return this.list;
     }
     
 }

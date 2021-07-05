@@ -47,7 +47,6 @@ public class CalendarioView extends javax.swing.JFrame {
         btArquivarMes = new javax.swing.JButton();
         btNovoMes = new javax.swing.JButton();
         cbMes = new javax.swing.JComboBox<>();
-        btExcluirConsulta = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         cbClienteList = new javax.swing.JComboBox<>();
         tfDia = new javax.swing.JTextField();
@@ -57,6 +56,7 @@ public class CalendarioView extends javax.swing.JFrame {
         tfEntrada = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         tfSaida = new javax.swing.JTextField();
+        btExcluirConsulta = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -88,6 +88,7 @@ public class CalendarioView extends javax.swing.JFrame {
         });
 
         btNovoMes.setText("Novo Mês");
+        btNovoMes.setEnabled(false);
         btNovoMes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btNovoMesActionPerformed(evt);
@@ -95,11 +96,9 @@ public class CalendarioView extends javax.swing.JFrame {
         });
 
         cbMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" }));
-
-        btExcluirConsulta.setText("Excluir Consulta");
-        btExcluirConsulta.addActionListener(new java.awt.event.ActionListener() {
+        cbMes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btExcluirConsultaActionPerformed(evt);
+                cbMesActionPerformed(evt);
             }
         });
 
@@ -110,9 +109,7 @@ public class CalendarioView extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btDispensar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btExcluirConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btArquivarMes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btNovoMes)
@@ -128,22 +125,22 @@ public class CalendarioView extends javax.swing.JFrame {
                     .addComponent(btArquivarMes)
                     .addComponent(cbMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btNovoMes)
-                    .addComponent(btDispensar)
-                    .addComponent(btExcluirConsulta))
+                    .addComponent(btDispensar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        tfDia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfDiaActionPerformed(evt);
+        tfDia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfDiaKeyReleased(evt);
             }
         });
 
         jLabel2.setText("Dia:");
 
         btConfirmar.setText("Confirmar");
+        btConfirmar.setEnabled(false);
         btConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btConfirmarActionPerformed(evt);
@@ -152,7 +149,26 @@ public class CalendarioView extends javax.swing.JFrame {
 
         jLabel3.setText("Entrada:");
 
+        tfEntrada.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfEntradaKeyReleased(evt);
+            }
+        });
+
         jLabel4.setText("Saída");
+
+        tfSaida.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfSaidaKeyReleased(evt);
+            }
+        });
+
+        btExcluirConsulta.setText("Excluir Consulta");
+        btExcluirConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcluirConsultaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -160,21 +176,24 @@ public class CalendarioView extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cbClienteList, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tfDia, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(cbClienteList, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfDia, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btExcluirConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(btConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -182,14 +201,17 @@ public class CalendarioView extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cbClienteList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tfDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel3)
-                        .addComponent(tfEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4)
-                        .addComponent(tfSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbClienteList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(tfEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(tfSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btExcluirConsulta))
                     .addComponent(btConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -235,7 +257,12 @@ public class CalendarioView extends javax.swing.JFrame {
              if(!calendarioDec.contains(txt)){
                     System.out.println(txt);
                     createCalendario(txt);
-                }
+                    if(!calendarioDec.contains(cbMes.getSelectedItem())){
+                        btNovoMes.setEnabled(true);
+                    }else{
+                        btNovoMes.setEnabled(false);
+        }
+             }
             
             
             
@@ -250,26 +277,52 @@ public class CalendarioView extends javax.swing.JFrame {
             tpCalendario.remove(tpCalendario.getSelectedComponent());
         }
         
+        if(!calendarioDec.contains(cbMes.getSelectedItem())){
+                        btNovoMes.setEnabled(true);
+                    }else{
+                        btNovoMes.setEnabled(false);
+        }
+        
         
     }//GEN-LAST:event_btArquivarMesActionPerformed
 
     private void btConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarActionPerformed
         Consulta c = new Consulta((Cliente)cbClienteList.getSelectedItem());
         addConsulta(c, tpCalendario.getSelectedComponent().getName());
+        this.setVisible(false);
+        this.setVisible(true);
     }//GEN-LAST:event_btConfirmarActionPerformed
-
-    private void tfDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDiaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfDiaActionPerformed
 
     private void btExcluirConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirConsultaActionPerformed
         Consulta c = new Consulta((Cliente)cbClienteList.getSelectedItem());
         removeConsulta(c, tpCalendario.getSelectedComponent().getName());
+        this.setVisible(false);
+        this.setVisible(true);
     }//GEN-LAST:event_btExcluirConsultaActionPerformed
 
     private void tpCalendarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tpCalendarioKeyReleased
         
     }//GEN-LAST:event_tpCalendarioKeyReleased
+
+    private void tfDiaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfDiaKeyReleased
+        disableButton();
+    }//GEN-LAST:event_tfDiaKeyReleased
+
+    private void tfEntradaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfEntradaKeyReleased
+        disableButton();
+    }//GEN-LAST:event_tfEntradaKeyReleased
+
+    private void tfSaidaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSaidaKeyReleased
+        disableButton();
+    }//GEN-LAST:event_tfSaidaKeyReleased
+
+    private void cbMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMesActionPerformed
+        if(!(calendarioDec.contains(cbMes.getSelectedItem()) | tpCalendario.getComponentCount()== 6)){
+            btNovoMes.setEnabled(true);
+        }else{
+            btNovoMes.setEnabled(false);
+        }
+    }//GEN-LAST:event_cbMesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,11 +378,17 @@ public class CalendarioView extends javax.swing.JFrame {
         for (Set<Dia> s: set){
             if(tpCalendario.getSelectedComponent().getName().equals(mes)){
                 for (Dia d: s){
+                
                 aux = d+"";
+                
                 if(aux.equals(tfDia.getText() + ": ")){
+                    
+                    
                     d.addConsulta(c, tfEntrada.getText(), tfSaida.getText());
                     
-                }}
+                }
+                
+            }
             
                 
             }
@@ -347,7 +406,9 @@ public class CalendarioView extends javax.swing.JFrame {
                 System.out.println(aux);
                 if(aux.equals(tfDia.getText() + "")){
                     
+                    
                     d.removeConsulta(c);
+                    
                     
                 }}
             
@@ -357,10 +418,19 @@ public class CalendarioView extends javax.swing.JFrame {
         
     }
     
+     public void disableButton(){
+         
+        if(!(tfDia.getText().equals("") || tfEntrada.getText().equals("") || tfSaida.getText().equals(""))){
+            this.btConfirmar.setEnabled(true);
+        }else{
+            this.btConfirmar.setEnabled(false);
+        }
+    }
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btArquivarMes;
-    private javax.swing.JButton btConfirmar;
+    javax.swing.JButton btConfirmar;
     private javax.swing.JButton btDispensar;
     private javax.swing.JButton btExcluirConsulta;
     private javax.swing.JButton btNovoMes;
@@ -372,9 +442,9 @@ public class CalendarioView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField tfDia;
-    private javax.swing.JTextField tfEntrada;
-    private javax.swing.JTextField tfSaida;
+    javax.swing.JTextField tfDia;
+    javax.swing.JTextField tfEntrada;
+    javax.swing.JTextField tfSaida;
     javax.swing.JTabbedPane tpCalendario;
     // End of variables declaration//GEN-END:variables
 }

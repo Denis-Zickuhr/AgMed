@@ -89,6 +89,14 @@ public class Consulta implements Comparable<Consulta>{
             return -1;
     }
     
+    public String getSaida(){
+        return saida;
+    }
+    
+    public String getEntradaSaida(){
+        return entrada;
+    }
+    
 }
 
 
