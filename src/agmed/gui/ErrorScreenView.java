@@ -33,6 +33,7 @@ public class ErrorScreenView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
+        setResizable(false);
 
         jButtonOK.setText("ok");
         jButtonOK.addActionListener(new java.awt.event.ActionListener() {

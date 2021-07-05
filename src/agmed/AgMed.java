@@ -16,5 +16,19 @@ public class AgMed {
         }  
     public static void main(String[] args){  
         
+         Set<Cliente> teste = new LinkedHashSet<>();
+         
+         Cliente c = new Cliente("a","a","a","a");
+         Cliente c1 = new Cliente("a","a","a","a");
+         teste.add(c);
+         teste.add(c1);
+         
+         for(int i = 0; i < 10; i++){
+             Cliente cli = new Cliente("a","a","a","a");
+             teste.add(cli);
+         }
+         
+         System.out.println(teste);
+        
     }
 }

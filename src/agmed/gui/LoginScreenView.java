@@ -24,6 +24,7 @@ public class LoginScreenView extends javax.swing.JFrame {
         pfSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         btLogin.setText("Entrar");
         btLogin.setEnabled(false);

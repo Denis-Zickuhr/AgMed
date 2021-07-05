@@ -36,6 +36,7 @@ public class CadastrarMedicosView extends javax.swing.JFrame {
         btCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         Nome.setText("Nome:");
 

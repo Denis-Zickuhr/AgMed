@@ -43,6 +43,7 @@ public class GerenciarCadastrosView extends javax.swing.JFrame {
         btOk2 = new javax.swing.JButton();
         btDispensar = new javax.swing.JButton();
 
+        setResizable(false);
         setType(java.awt.Window.Type.POPUP);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));

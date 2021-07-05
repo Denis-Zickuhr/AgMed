@@ -32,6 +32,8 @@ public class CriarAgendasView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
+        setResizable(false);
+
         cbMedicoList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbMedicoListActionPerformed(evt);
