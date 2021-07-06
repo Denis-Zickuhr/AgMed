@@ -178,7 +178,7 @@ public class MainView extends javax.swing.JFrame {
         String[] contatos = new String[]{"HansXuXu71@gmail.com", "MarsCell@gmail.com", "DinoSaurro@gmail.com", 
                                          "LindaMorena33@gmail.com", "Santinhoo22@gmail.com",
                                         "sorosoroe12@gmail.com", "LuisUU@gmail.com", "GPatuuu21@gmail.com",
-                                        "BrunoSol@gmail.com"
+                                        "BrunoSol@gmail.com", "aLvesL1vdt@gmail.com"
         };
         String[] crms = new String[]{
             "13125", "84111", "48481", "84811", "77741"
@@ -196,6 +196,7 @@ public class MainView extends javax.swing.JFrame {
         }
         
         for(int i = 5; i < 10; i++){
+            System.out.println(i);
             Cliente c = new Cliente(nomes[i], cpfs[i], enderecos[i], contatos[i]);
             CadastrarClientesView.putClientesInCB(c);
         }

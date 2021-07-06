@@ -12,6 +12,7 @@
        
         public final Map<String, Set<String>> historicoMedico = new HashMap<>();
         public final Set<LinkedHashSet<String>> SetOfStrings = new LinkedHashSet<>();
+        
         public void novaEntrada(String data, String desc, String hora){
         
             String dia = "Dia: " + data.substring(0,2)+"/"+data.substring(2,4)+"/"+data.substring(4, 8);
@@ -40,6 +41,7 @@
                         }
                     }
                     
+
                     historicoMedico.put(data, list);
                     
                 }
