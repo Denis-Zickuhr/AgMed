@@ -207,6 +207,7 @@ public class AlterarPropriedadesCView extends javax.swing.JFrame {
         CadastrarClientesView.clienteList.remove((Cliente)investigados.get(0));
         CadastrarClientesView.putClientesInCB();
         this.dispose();
+        
     }//GEN-LAST:event_btExcluirActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed

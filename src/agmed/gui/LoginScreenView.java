@@ -5,6 +5,9 @@ import agmed.Secretario;
 import agmed.Autenticador;
 import agmed.AgMed;
 import static agmed.AgMed.userList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 
 public class LoginScreenView extends javax.swing.JFrame {
     
@@ -103,6 +106,8 @@ public class LoginScreenView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
+        
+        
         MainView tela = new MainView();
         ErrorScreenView erro = new ErrorScreenView();
         
@@ -117,6 +122,15 @@ public class LoginScreenView extends javax.swing.JFrame {
                 break;
 	}
         if (auten.getChaveAcesso() == true){
+            ActionListener acao = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Clique no botão");
+			}
+		};
+        
+            LoginScreenView.btLogin.addActionListener(acao);
+        
             tela.setVisible(true);
             this.dispose();
         }else   
@@ -147,7 +161,7 @@ public class LoginScreenView extends javax.swing.JFrame {
         }
     }
     public static void main(String args[]) {   
-     
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginScreenView().setVisible(true);

@@ -182,6 +182,7 @@ public class MainView extends javax.swing.JFrame {
         };
         String[] crms = new String[]{
             "13125", "84111", "48481", "84811", "77741"
+                
         };
         String[] espcs = new String[]{
             "Clinico geral", "Psiquiatra", "Ortopedista", "Cirurgiao", "Ginecologista"
