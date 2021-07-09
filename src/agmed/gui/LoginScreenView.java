@@ -125,7 +125,7 @@ public class LoginScreenView extends javax.swing.JFrame {
             ActionListener acao = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Clique no botão");
+				System.out.println("Pressione o botão");
 			}
 		};
         
